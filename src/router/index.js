@@ -3,6 +3,8 @@ import VueRouter from 'vue-router'
 
 // 引入主页
 import Home from '../components/home.vue'
+// 引入vip
+import Vip from '../components/vip/Vip.vue'
 Vue.use(VueRouter)
 
 const routes = [{
@@ -12,6 +14,10 @@ const routes = [{
 {
   path: '/home',
   component: Home
+},
+{
+  path: '/vip',
+  component: Vip
 }
 ]
 

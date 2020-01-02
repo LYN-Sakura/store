@@ -2,14 +2,14 @@
   <footer>
     <van-row type="flex">
       <van-col span="6">
-        <router-link to="/">
-          <i class="iconfont icon-index-fill icon"></i>
+        <router-link to="/home" :style="'color:' + homeLight">
+          <i class="iconfont icon-index-fill"></i>
           <div>首页</div>
         </router-link>
       </van-col>
       <van-col span="6">
-        <router-link to="/">
-          <i class="iconfont icon-icon_zhanghao icon"></i>
+        <router-link to="/vip" :style="'color:' + vipLight">
+          <i class="iconfont icon-icon_zhanghao"></i>
           <div>会员</div>
         </router-link>
       </van-col>
@@ -20,7 +20,7 @@
         </router-link>
       </van-col>
       <van-col span="6">
-        <router-link to="/">
+        <router-link to="/" :style="'color:' + seachLight">
           <van-icon name="search" />
           <div>搜索</div>
         </router-link>
@@ -31,8 +31,12 @@
 
 <script>
 export default {
+  props: ['homeLight', 'vipLight', 'seachLight'],
   data() {
     return {}
+  },
+  created() {
+    console.log(this.homeLight)
   }
 }
 </script>

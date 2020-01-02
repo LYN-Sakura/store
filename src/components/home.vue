@@ -48,7 +48,7 @@
         </div>
       </div>
     </div>
-    <FooterFrame></FooterFrame>
+    <FooterFrame homeLight="#1989fa"></FooterFrame>
   </div>
 </template>
 
