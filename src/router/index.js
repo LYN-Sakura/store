@@ -9,19 +9,23 @@ import Home from '../components/home.vue'
 import ShareImg from '../components/share_img.vue'
 Vue.use(VueRouter)
 
-const routes = [{
-  path: '/',
-  redirect: '/frame'
-},
-{
-  path: '/frame',
-  component: Frame,
-  redirect: '/home',
-  children: [{
-    path: '/home',
-    component: Home
-  },{ path: '/shareimg', component: ShareImg }]
-}
+const routes = [
+  {
+    path: '/',
+    redirect: '/frame'
+  },
+  {
+    path: '/frame',
+    component: Frame,
+    redirect: '/home',
+    children: [
+      {
+        path: '/home',
+        component: Home
+      },
+      { path: '/shareimg', component: ShareImg }
+    ]
+  }
 ]
 
 const router = new VueRouter({
