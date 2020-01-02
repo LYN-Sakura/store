@@ -1,6 +1,6 @@
 <template>
   <div>
-    <HeaderFrame :backIsDispaly="true"></HeaderFrame>
+    <HeaderFrame :backIsDisplay="true"></HeaderFrame>
     <div class="main">
       <!-- tab栏区域 -->
       <van-tabs v-model="active" animated @click="getimglist">

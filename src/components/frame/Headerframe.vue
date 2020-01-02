@@ -1,17 +1,17 @@
 <template>
   <header>
-    <div class="back" @click="goback" v-show="backIsDispaly">
+    <div class="back" @click="goback" v-show="backIsDisplay">
       <van-icon name="arrow-left" />
       返回
     </div>
     <div>黑马程序员.vant</div>
-    <div class="add" v-show="addIsDispaly">添加</div>
+    <div class="add" v-show="addIsDisplay">添加</div>
   </header>
 </template>
 
 <script>
 export default {
-  props: ['backIsDispaly', 'addIsDispaly'],
+  props: ['backIsDisplay', 'addIsDisplay'],
   data() {
     return {}
   },

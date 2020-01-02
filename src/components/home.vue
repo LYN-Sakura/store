@@ -9,7 +9,7 @@
       <!-- 中部九宫格区域 -->
       <div class="box">
         <div>
-          <router-link to="/">
+          <router-link to="/showNews">
             <img src="..\assets\images\jiu\menu1.png" alt="" />
             <span>新闻资讯</span>
           </router-link>

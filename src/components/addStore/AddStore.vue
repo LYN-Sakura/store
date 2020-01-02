@@ -1,6 +1,6 @@
 <template>
   <div>
-    <HeaderFrame :backIsDispaly="true"></HeaderFrame>
+    <HeaderFrame :backIsDisplay="true"></HeaderFrame>
     <div class="main">
       <div class="content">
         <van-field v-model="storeName" placeholder="请输入商品名称" />
