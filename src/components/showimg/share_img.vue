@@ -1,29 +1,34 @@
 <template>
   <div>
-    <!-- tab栏区域 -->
-    <van-tabs v-model="active" animated @click="getimglist">
-      <van-tab title="全部" name="0"
-        ><div class="box" v-for="item in imglist" :key="item.id">
-          <img :src="item.img_url" />
-          <!-- 黑色区域 -->
-          <div class="showdon">
-            <p>{{ item.title }}</p>
-            <p>{{ item.zhaiyao }}</p>
-            <p></p>
+    <HeaderFrame :backIsDispaly="true"></HeaderFrame>
+    <div class="main">
+      <!-- tab栏区域 -->
+      <van-tabs v-model="active" animated @click="getimglist">
+        <van-tab title="全部" name="0">
+          <div class="box" v-for="item in imglist" :key="item.id">
+            <img :src="item.img_url" />
+            <!-- 黑色区域 -->
+            <div class="showdon">
+              <p>{{ item.title }}</p>
+              <p>{{ item.zhaiyao }}</p>
+              <p></p>
+            </div>
           </div>
-        </div>
-      </van-tab>
-      <van-tab v-for="item in catelist" :key="item.id" :title="item.title" :name="item.id"
-        ><div class="box" v-for="item in imglist" :key="item.id">
-          <img :src="item.img_url" />
-          <!-- 黑色区域 -->
-          <div class="showdon">
-            <p>{{ item.title }}</p>
-            <p>{{ item.zhaiyao }}</p>
-            <p></p>
-          </div></div
-      ></van-tab>
-    </van-tabs>
+        </van-tab>
+        <van-tab v-for="item in catelist" :key="item.id" :title="item.title" :name="item.id">
+          <div class="box" v-for="item in imglist" :key="item.id">
+            <img :src="item.img_url" />
+            <!-- 黑色区域 -->
+            <div class="showdon">
+              <p>{{ item.title }}</p>
+              <p>{{ item.zhaiyao }}</p>
+              <p></p>
+            </div>
+          </div>
+        </van-tab>
+      </van-tabs>
+    </div>
+    <FooterFrame homeLight="#1989fa"></FooterFrame>
   </div>
 </template>
 <script>
@@ -48,15 +53,12 @@ export default {
     //   获取图片分类种类
     getcatelist() {
       this.$http.get('/api/getimgcategory').then(res => {
-        console.log(res.data)
         this.catelist = res.data.message
       })
     },
     // 获取图片列表
     getimglist(name, title) {
-      console.log(name)
       this.$http.get('/api/getimages/' + name).then(res => {
-        console.log(res.data)
         this.imglist = res.data.message
       })
     }
