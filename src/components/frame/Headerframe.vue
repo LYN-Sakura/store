@@ -1,13 +1,17 @@
 <template>
   <header>
-    <div id="back" @click="goback" v-show="backIsDispaly">&lt; 返回</div>
+    <div class="back" @click="goback" v-show="backIsDispaly">
+      <van-icon name="arrow-left" />
+      返回
+    </div>
     <div>黑马程序员.vant</div>
+    <div class="add" v-show="addIsDispaly">添加</div>
   </header>
 </template>
 
 <script>
 export default {
-  props: ['backIsDispaly'],
+  props: ['backIsDispaly', 'addIsDispaly'],
   data() {
     return {}
   },
@@ -30,9 +34,17 @@ header {
   line-height: 40px;
   font-size: 14px;
   color: white;
-  #back {
+  .back,
+  .add {
     width: 80px;
     position: absolute;
+  }
+  .back .van-icon {
+    vertical-align: -15%;
+  }
+  .add {
+    top: 0;
+    right: 0;
   }
 }
 </style>
