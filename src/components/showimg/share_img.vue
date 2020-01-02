@@ -6,7 +6,9 @@
       <van-tabs v-model="active" animated @click="getimglist">
         <van-tab title="全部" name="0">
           <div class="box" v-for="item in imglist" :key="item.id">
-            <img :src="item.img_url" />
+            <router-link to="/imgxiangqing">
+              <img :src="item.img_url" @click="saveid(item.id)" />
+            </router-link>
             <!-- 黑色区域 -->
             <div class="showdon">
               <p>{{ item.title }}</p>
@@ -17,7 +19,9 @@
         </van-tab>
         <van-tab v-for="item in catelist" :key="item.id" :title="item.title" :name="item.id">
           <div class="box" v-for="item in imglist" :key="item.id">
-            <img :src="item.img_url" />
+            <router-link to="/imgxiangqing">
+              <img :src="item.img_url" @click="saveid(item.id)" />
+            </router-link>
             <!-- 黑色区域 -->
             <div class="showdon">
               <p>{{ item.title }}</p>
@@ -59,8 +63,13 @@ export default {
     // 获取图片列表
     getimglist(name, title) {
       this.$http.get('/api/getimages/' + name).then(res => {
+        console.log(res.data.message)
         this.imglist = res.data.message
       })
+    },
+    // 传递图片id
+    saveid(id) {
+      window.sessionStorage.setItem('id', id)
     }
   }
 }
@@ -77,7 +86,7 @@ img {
   border-radius: 5px;
 }
 .showdon {
-  width: (100%)-1.3;
+  width: (100%)-5px;
   height: 75px;
   position: absolute;
   background-color: rgba(0, 0, 0, 0.5);
