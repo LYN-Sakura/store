@@ -13,7 +13,7 @@
         </router-link>
       </div>
        <div>
-        <router-link to='/'>
+        <router-link to='/shareimg'>
           <img src="..\assets\images\jiu\menu2.png" alt="" />
           <span>图片分享</span>
         </router-link>
