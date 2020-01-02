@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-    <router-link to="/home">主页</router-link><router-view></router-view></div>
+    <router-view></router-view>
+  </div>
 </template>
 
 <style>

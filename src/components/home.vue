@@ -5,7 +5,7 @@
       <van-swipe-item v-for="(images, index) in lunbo" :key="index"><img v-lazy="images.img"/></van-swipe-item>
     </van-swipe>
     <!-- 中部九宫格区域 -->
-    <div id="box">
+    <div class="box">
       <div>
         <router-link to='/'>
           <img src="..\assets\images\jiu\menu1.png" alt="" />
@@ -25,7 +25,7 @@
         </router-link>
       </div>
     </div>
-    <div id="box">
+    <div class="box">
       <div>
         <router-link to='/'>
           <img src="..\assets\images\jiu\menu4.png" alt="" />
@@ -81,7 +81,7 @@ img {
   width: 100%;
   height: 200px;
 }
-#box {
+.box {
   display: flex;
   div {
     flex:1;
@@ -97,6 +97,7 @@ img {
       text-align: center;
       margin-top: 10px;
       color: black;
+      font-size: 14px;
     }
   }
 }
