@@ -1,4 +1,5 @@
 import Vue from 'vue'
+
 import {
   Row,
   Col,
@@ -14,7 +15,8 @@ import {
   Tabs,
   Field,
   CellGroup,
-  Notify
+  Notify,
+  ImagePreview
 } from 'vant'
 
 Vue.use(Row)
@@ -32,3 +34,4 @@ Vue.use(Row)
   .use(Field)
   .use(CellGroup)
   .use(Notify)
+  .use(ImagePreview)
