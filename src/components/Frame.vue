@@ -11,20 +11,28 @@
     <footer>
       <van-row type="flex">
         <van-col span="6">
-          <i class="iconfont icon-index-fill icon"></i>
-          <div>首页</div>
+          <router-link to="/">
+            <i class="iconfont icon-index-fill icon"></i>
+            <div>首页</div>
+          </router-link>
         </van-col>
         <van-col span="6">
-          <i class="iconfont icon-icon_zhanghao icon"></i>
-          <div>会员</div>
+          <router-link to="/">
+            <i class="iconfont icon-icon_zhanghao icon"></i>
+            <div>会员</div>
+          </router-link>
         </van-col>
         <van-col span="6">
-          <van-icon name="cart-o" info="9" />
-          <div>购物车</div>
+          <router-link to="/">
+            <van-icon name="cart-o" info="9" />
+            <div>购物车</div>
+          </router-link>
         </van-col>
         <van-col span="6">
-          <van-icon name="search" />
-          <div>搜索</div>
+          <router-link to="/">
+            <van-icon name="search" />
+            <div>搜索</div>
+          </router-link>
         </van-col>
       </van-row>
     </footer>
@@ -69,8 +77,10 @@ footer {
   width: 100%;
   height: 40px;
   padding-top: 10px;
-  color: #7d7e80;
   background-color: white;
+  a {
+    color: #7d7e80;
+  }
   div {
     font-size: 12px;
   }
