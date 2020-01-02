@@ -5,13 +5,17 @@
     <span id="left">发表时间:{{ imgform.add_time | dateFormat }}</span>
     <span id="right">点击:{{ imgform.click }}</span>
     <div class="middle">
-      <van-image v-for="(item, index) in imglist" :key="index" width="480" height="480" :src="item.src" />
+      <van-image v-for="(item, index) in imglist" :key="index" width="480" height="480" :src="item.src" @click="show(item.src)" />
       <p v-html="imgform.content"></p>
     </div>
   </div>
 </template>
 
 <script>
+import Vue from 'vue'
+import { ImagePreview } from 'vant'
+
+Vue.use(ImagePreview)
 export default {
   data() {
     return {
@@ -43,6 +47,9 @@ export default {
       this.$http.get('/api/getimageInfo/' + this.id).then(res => {
         this.imgform = res.data.message[0]
       })
+    },
+    show(src) {
+      ImagePreview([src])
     }
   }
 }
@@ -67,9 +74,9 @@ h4 {
   display: flex;
   flex-wrap: wrap;
 }
-.van-image{
-   width: 30%;
-   margin: 20px 0px 5px 10px;
-   box-shadow: 5px 5px 2px rgba(0, 0, 0, 0.2)
+.van-image {
+  width: 30%;
+  margin: 20px 0px 5px 10px;
+  box-shadow: 5px 5px 2px rgba(0, 0, 0, 0.2);
 }
 </style>
