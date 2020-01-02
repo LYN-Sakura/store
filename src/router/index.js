@@ -8,30 +8,35 @@ import ShareImg from '../components/showimg/share_img.vue'
 // 引入vip
 import Vip from '../components/vip/Vip.vue'
 // 引入图片展示详情页
-import Img from '../components/imgxiangqing.vue'
+import Img from '../components/showimg/imgxiangqing.vue'
+// 引入添加商品模块
+import AddStore from '../components/addStore/AddStore.vue'
 Vue.use(VueRouter)
 
-const routes = [
-  {
-    path: '/',
-    redirect: '/home'
-  },
-  {
-    path: '/home',
-    component: Home
-  },
-  {
-    path: '/vip',
-    component: Vip
-  },
-  {
-    path: '/shareimg',
-    component: ShareImg
-  },
-  {
-    path: '/imgxiangqing',
-    component: Img
-  }
+const routes = [{
+  path: '/',
+  redirect: '/home'
+},
+{
+  path: '/home',
+  component: Home
+},
+{
+  path: '/vip',
+  component: Vip
+},
+{
+  path: '/shareimg',
+  component: ShareImg
+},
+{
+  path: '/addStore',
+  component: AddStore
+},
+{
+  path: '/imgxiangqing',
+  component: Img
+}
 ]
 
 const router = new VueRouter({

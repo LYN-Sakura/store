@@ -1,6 +1,6 @@
 <template>
   <div>
-    <HeaderFrame :backIsDispaly="false"></HeaderFrame>
+    <HeaderFrame></HeaderFrame>
     <div class="main">
       <!-- 顶部轮播图区域 -->
       <van-swipe :autoplay="3000" indicator-color="white">
