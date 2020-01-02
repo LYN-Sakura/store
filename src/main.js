@@ -2,9 +2,13 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
+import axios from 'axios'
+
 // 引入 按需引入的vant文件
 import './plugins/vant.js'
+axios.defaults.baseURL = 'http://www.liulongbin.top:3005/'
 Vue.config.productionTip = false
+Vue.prototype.$http = axios
 
 new Vue({
   router,

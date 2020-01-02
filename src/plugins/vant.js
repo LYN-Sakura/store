@@ -1,6 +1,20 @@
 import Vue from 'vue'
 import {
-  Button
+  Button,
+  Row,
+  Col,
+  SubmitBar,
+  Card,
+  Field,
+  NumberKeyboard,
+  Toast
 } from 'vant'
 
 Vue.use(Button)
+Vue.use(Row)
+Vue.use(Col)
+Vue.use(SubmitBar)
+Vue.use(Card)
+Vue.use(Field)
+Vue.use(NumberKeyboard)
+Vue.use(Toast)

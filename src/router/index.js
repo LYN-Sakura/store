@@ -1,12 +1,11 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import Shopcar from '../components/shopcar/Shopcar.vue'
 
 Vue.use(VueRouter)
 
-const routes = []
-
 const router = new VueRouter({
-  routes
+  routes: [{ path: '/shopcar', component: Shopcar }]
 })
 
 export default router
