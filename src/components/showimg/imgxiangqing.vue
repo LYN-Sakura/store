@@ -49,7 +49,15 @@ export default {
       })
     },
     show(src) {
-      ImagePreview([src])
+      //   ImagePreview([src])
+      var arr = []
+      for (var i = 0; i < this.imglist.length; i++) {
+        arr.push(this.imglist[i].src)
+      }
+      var index = arr.indexOf(src)
+      arr.splice(index, 1)
+      arr.unshift(src)
+      ImagePreview(arr)
     }
   }
 }
