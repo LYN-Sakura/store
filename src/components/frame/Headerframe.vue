@@ -26,6 +26,7 @@ export default {
 <style lang="less" scoped>
 header {
   position: fixed;
+  text-align: center;
   top: 0;
   z-index: 999;
   width: 100%;

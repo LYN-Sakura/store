@@ -84,6 +84,9 @@ img {
   width: 100%;
   height: 200px;
 }
+.main {
+  text-align: center;
+}
 .box {
   display: flex;
   div {

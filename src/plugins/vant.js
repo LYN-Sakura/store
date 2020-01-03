@@ -16,7 +16,9 @@ import {
   Field,
   CellGroup,
   Notify,
-  ImagePreview
+  ImagePreview,
+  Loading,
+  PullRefresh
 } from 'vant'
 
 Vue.use(Row)
@@ -35,3 +37,5 @@ Vue.use(Row)
   .use(CellGroup)
   .use(Notify)
   .use(ImagePreview)
+  .use(Loading)
+  .use(PullRefresh)

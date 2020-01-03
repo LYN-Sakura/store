@@ -1,12 +1,14 @@
 <template>
   <div>
     <HeaderFrame :backIsDisplay="true"></HeaderFrame>
-    <h4>{{ imgform.title }}</h4>
-    <span id="left">发表时间:{{ imgform.add_time | dateFormat }}</span>
-    <span id="right">点击:{{ imgform.click }}</span>
-    <div class="middle">
-      <van-image v-for="(item, index) in imglist" :key="index" width="480" height="480" :src="item.src" @click="show(item.src)" />
-      <p v-html="imgform.content"></p>
+    <div class="main">
+      <h4>{{ imgform.title }}</h4>
+      <span id="left">发表时间:{{ imgform.add_time | dateFormat }}</span>
+      <span id="right">点击:{{ imgform.click }}</span>
+      <div class="middle">
+        <van-image v-for="(item, index) in imglist" :key="index" width="480" height="480" :src="item.src" @click="show(item.src)" />
+        <p v-html="imgform.content"></p>
+      </div>
     </div>
   </div>
 </template>
@@ -66,7 +68,6 @@ export default {
 <style lang="less" scoped>
 h4 {
   color: #1989fa;
-  margin-top: 60px;
 }
 #left {
   float: left;
@@ -86,5 +87,8 @@ h4 {
   width: 30%;
   margin: 20px 0px 5px 10px;
   box-shadow: 5px 5px 2px rgba(0, 0, 0, 0.2);
+}
+.main {
+  text-align: center;
 }
 </style>

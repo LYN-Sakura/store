@@ -13,6 +13,8 @@ import Img from '../components/showimg/imgxiangqing.vue'
 import AddStore from '../components/addStore/AddStore.vue'
 // 引入新闻阅读模块
 import ShowNews from '../components/news/showNews.vue'
+// 引入新闻详情
+import NewsInfo from '../components/news/newsInfo.vue'
 Vue.use(VueRouter)
 
 const routes = [{
@@ -42,6 +44,10 @@ const routes = [{
 {
   path: '/showNews',
   component: ShowNews
+},
+{
+  path: '/newsInfo',
+  component: NewsInfo
 }
 ]
 
