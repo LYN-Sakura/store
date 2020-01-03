@@ -15,7 +15,7 @@
       </van-col>
       <van-col span="6">
         <router-link to="/">
-          <van-icon name="cart-o" info="0" />
+          <van-icon name="cart-o" :info="this.$store.state.count" />
           <div>购物车</div>
         </router-link>
       </van-col>
@@ -34,6 +34,10 @@ export default {
   props: ['homeLight', 'vipLight', 'seachLight'],
   data() {
     return {}
+  },
+  methods: {},
+  created() {
+    this.$store.commit('get')
   }
 }
 </script>
