@@ -9,6 +9,10 @@ import ShareImg from '../components/showimg/share_img.vue'
 import Vip from '../components/vip/Vip.vue'
 // 引入图片展示详情页
 import Img from '../components/imgxiangqing.vue'
+// 引入商品评论
+import Goodscomments from '../components/goodside/Goodscomments.vue'
+// 引入商品图文信息
+import Goodsdesc from '../components/goodside/Goodsdesc.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -31,6 +35,14 @@ const routes = [
   {
     path: '/imgxiangqing',
     component: Img
+  },
+  {
+    path: '/goodscomments',
+    component: Goodscomments
+  },
+  {
+    path: '/goodsdesc',
+    component: Goodsdesc
   }
 ]
 
