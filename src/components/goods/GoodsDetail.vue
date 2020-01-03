@@ -13,9 +13,9 @@
         <div class="goodsInfoTitle">{{ this.goodsInfo.title }}</div>
         <p>
           市场价：
-          <s>￥{{ this.goodsInfo.sell_price }}</s>
+          <s>￥{{ this.goodsInfo.market_price }}</s>
           销售价
-          <em>￥{{ this.goodsInfo.market_price }}</em>
+          <em>￥{{ this.goodsInfo.sell_price }}</em>
         </p>
         <div class="count">
           <span>购买数量</span>
@@ -82,7 +82,7 @@ export default {
       const add = {
         id: this.urlId,
         num: this.value,
-        price: this.goodsInfo.market_price,
+        price: this.goodsInfo.sell_price,
         status: true
       }
       this.$store.commit('add', add)

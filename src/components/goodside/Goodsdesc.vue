@@ -56,6 +56,7 @@ body {
   height: 100%;
   margin-top: 80px;
   bottom: 30px;
+  text-align: center;
   h4 {
     color: #226aff;
     width: 100%;

@@ -28,7 +28,9 @@ export default {
     transform: rotate(360deg);
   }
 }
-
+.main{
+    text-align: center;
+}
 .vip h3 {
   font-weight: normal;
 }

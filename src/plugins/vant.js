@@ -17,12 +17,19 @@ import {
   CellGroup,
   Notify,
   ImagePreview,
-  NoticeBar,
+  Loading,
   PullRefresh,
+  NoticeBar,
   List,
   Cell,
   Stepper,
-  Toast
+  Toast,
+  Rate,
+  Search,
+  Card,
+  Dialog,
+  SwipeCell,
+  Divider
 } from 'vant'
 Vue.use(Row)
   .use(Col)
@@ -40,9 +47,18 @@ Vue.use(Row)
   .use(CellGroup)
   .use(Notify)
   .use(ImagePreview)
+  .use(Loading)
+  .use(PullRefresh)
   .use(NoticeBar)
   .use(PullRefresh)
   .use(List)
   .use(Cell)
   .use(Stepper)
   .use(Toast)
+  .use(Rate)
+  .use(Search)
+  .use(Card)
+  .use(SwipeCell)
+  .use(Divider)
+Vue.prototype.$alert = Dialog.alert
+Vue.prototype.$confirm = Dialog.confirm

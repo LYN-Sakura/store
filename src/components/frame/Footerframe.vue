@@ -15,12 +15,12 @@
       </van-col>
       <van-col span="6">
         <router-link to="/">
-          <van-icon name="cart-o" info="0" />
+          <van-icon name="cart-o" :info="this.$store.state.count" />
           <div>购物车</div>
         </router-link>
       </van-col>
       <van-col span="6">
-        <router-link to="/" :style="'color:' + seachLight">
+        <router-link to="/search" :style="'color:' + searchLight">
           <van-icon name="search" />
           <div>搜索</div>
         </router-link>
@@ -31,9 +31,13 @@
 
 <script>
 export default {
-  props: ['homeLight', 'vipLight', 'seachLight'],
+  props: ['homeLight', 'vipLight', 'searchLight'],
   data() {
     return {}
+  },
+  methods: {},
+  created() {
+    this.$store.commit('get')
   }
 }
 </script>
@@ -41,6 +45,7 @@ export default {
 <style lang="less" scoped>
 footer {
   position: fixed;
+  text-align: center;
   bottom: 0;
   width: 100%;
   height: 40px;
