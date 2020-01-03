@@ -17,12 +17,14 @@ import {
   CellGroup,
   Notify,
   ImagePreview,
-  NoticeBar,
+  Loading,
   PullRefresh,
+  NoticeBar,
   List,
   Cell,
   Stepper,
-  Toast
+  Toast,
+  Rate
 } from 'vant'
 
 Vue.use(Row)
@@ -41,9 +43,12 @@ Vue.use(Row)
   .use(CellGroup)
   .use(Notify)
   .use(ImagePreview)
+  .use(Loading)
+  .use(PullRefresh)
   .use(NoticeBar)
   .use(PullRefresh)
   .use(List)
   .use(Cell)
   .use(Stepper)
   .use(Toast)
+  .use(Rate)

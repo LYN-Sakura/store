@@ -3,12 +3,10 @@
     <HeaderFrame :backIsDisplay="true"></HeaderFrame>
     <div class="main">
       <!-- tab栏区域 -->
-      <van-tabs v-model="active" animated @click="getimglist">
+      <van-tabs v-model="active" class="tabHeader" animated @click="getimglist">
         <van-tab title="全部" name="0">
           <div class="box" v-for="item in imglist" :key="item.id">
-            <router-link to="/imgxiangqing">
-              <img :src="item.img_url" @click="saveid(item.id)" />
-            </router-link>
+            <router-link to="/imgxiangqing"><img :src="item.img_url" @click="saveid(item.id)" v-lazy="item.img_url" /></router-link>
             <!-- 黑色区域 -->
             <div class="showdon">
               <p>{{ item.title }}</p>
@@ -19,9 +17,7 @@
         </van-tab>
         <van-tab v-for="item in catelist" :key="item.id" :title="item.title" :name="item.id">
           <div class="box" v-for="item in imglist" :key="item.id">
-            <router-link to="/imgxiangqing">
-              <img :src="item.img_url" @click="saveid(item.id)" />
-            </router-link>
+            <router-link to="/imgxiangqing"><img :src="item.img_url" @click="saveid(item.id)" v-lazy="item.img_url" /></router-link>
             <!-- 黑色区域 -->
             <div class="showdon">
               <p>{{ item.title }}</p>
@@ -83,6 +79,9 @@ export default {
 </script>
 
 <style lang="less" scoped>
+.tabHeader {
+  color: red;
+}
 .box {
   padding: 10px;
   position: relative;

@@ -10,12 +10,12 @@
         </van-swipe>
       </div>
       <div class="goodsInfo">
-        <div class="goodsInfoTitle">{{this.goodsInfo.title}}</div>
+        <div class="goodsInfoTitle">{{ this.goodsInfo.title }}</div>
         <p>
           市场价：
-          <s>￥{{this.goodsInfo.sell_price}}</s>
+          <s>￥{{ this.goodsInfo.sell_price }}</s>
           销售价
-          <em>￥{{this.goodsInfo.market_price}}</em>
+          <em>￥{{ this.goodsInfo.market_price }}</em>
         </p>
         <div class="count">
           <span>购买数量</span>
@@ -29,9 +29,9 @@
       <div class="goodsParams">
         <div class="goodsParamsTitle">商品参数</div>
         <div class="body">
-          <p>商品货号：{{this.goodsInfo.goods_no}}</p>
-          <p>库存情况：{{this.goodsInfo.stock_quantity}}</p>
-          <p>上架时间：{{this.goodsInfo.add_time}}</p>
+          <p>商品货号：{{ this.goodsInfo.goods_no }}</p>
+          <p>库存情况：{{ this.goodsInfo.stock_quantity }}</p>
+          <p>上架时间：{{ this.goodsInfo.add_time }}</p>
         </div>
         <div class="btns">
           <van-button plain type="info" block @click="toGoodsDesc(urlId)">图文介绍</van-button>

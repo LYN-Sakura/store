@@ -1,20 +1,21 @@
 <template>
   <div>
     <HeaderFrame :backIsDisplay="true"></HeaderFrame>
-    <h4>{{ imgform.title }}</h4>
-    <span id="left">发表时间:{{ imgform.add_time | dateFormat }}</span>
-    <span id="right">点击:{{ imgform.click }}</span>
-    <div class="middle">
-      <van-image v-for="(item, index) in imglist" :key="index" width="480" height="480" :src="item.src" @click="show(item.src)" />
-      <p v-html="imgform.content"></p>
+    <div class="main">
+      <h4>{{ imgform.title }}</h4>
+      <span id="left">发表时间:{{ imgform.add_time | dateFormat }}</span>
+      <span id="right">点击:{{ imgform.click }}</span>
+      <div class="middle">
+        <van-image width="30%" v-for="(item, index) in imglist" :key="index" :src="item.src" @click="show(index)" lazy-load />
+        <p v-html="imgform.content"></p>
+      </div>
+      <comments></comments>
     </div>
   </div>
 </template>
-
 <script>
 import Vue from 'vue'
 import { ImagePreview } from 'vant'
-
 Vue.use(ImagePreview)
 export default {
   data() {
@@ -48,16 +49,15 @@ export default {
         this.imgform = res.data.message[0]
       })
     },
-    show(src) {
-      //   ImagePreview([src])
+    show(num) {
       var arr = []
       for (var i = 0; i < this.imglist.length; i++) {
         arr.push(this.imglist[i].src)
       }
-      var index = arr.indexOf(src)
-      arr.splice(index, 1)
-      arr.unshift(src)
-      ImagePreview(arr)
+      ImagePreview({
+        images: arr,
+        startPosition: num
+      })
     }
   }
 }
@@ -66,7 +66,6 @@ export default {
 <style lang="less" scoped>
 h4 {
   color: #1989fa;
-  margin-top: 60px;
 }
 #left {
   float: left;
@@ -83,8 +82,14 @@ h4 {
   flex-wrap: wrap;
 }
 .van-image {
-  width: 30%;
   margin: 20px 0px 5px 10px;
   box-shadow: 5px 5px 2px rgba(0, 0, 0, 0.2);
+}
+p {
+  text-align: left;
+  padding-left: 10px;
+}
+.main {
+  text-align: center;
 }
 </style>

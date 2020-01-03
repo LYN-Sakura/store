@@ -45,6 +45,7 @@ export default {
 <style lang="less" scoped>
 footer {
   position: fixed;
+  text-align: center;
   bottom: 0;
   width: 100%;
   height: 40px;
