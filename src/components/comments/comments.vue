@@ -73,6 +73,7 @@ export default {
     },
     // 发送评论
     setcom() {
+      if (this.message === '') return Toast.fail('请先输入内容')
       if (this.value === 0) {
         return Toast.fail('请先进行评分')
       } else if (this.value === 5) {
