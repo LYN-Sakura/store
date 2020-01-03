@@ -25,6 +25,7 @@ import {
   Stepper,
   Toast,
   Rate,
+  SubmitBar,
   Search,
   Card,
   Dialog,
@@ -57,6 +58,8 @@ Vue.use(Row)
   .use(Stepper)
   .use(Toast)
   .use(Rate)
+  .use(Card)
+  .use(SubmitBar)
   .use(Search)
   .use(Card)
   .use(SwipeCell)

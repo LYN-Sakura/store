@@ -26,7 +26,7 @@
         </van-list>
       </van-pull-refresh>
     </div>
-    <FooterFrame homeLight="#1989fa"></FooterFrame>
+    <FooterFrame></FooterFrame>
   </div>
 </template>
 

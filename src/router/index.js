@@ -1,5 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import Shopcar from '../components/shopcar/Shopcar.vue'
+
 // 引入主页
 import Home from '../components/home.vue'
 // 引入图片展示组件
@@ -84,6 +86,10 @@ const routes = [{
 {
   path: '/goodscomments/:id',
   component: GoodsSpeak
+},
+{
+  path: '/shopcar',
+  component: Shopcar
 }
 ]
 

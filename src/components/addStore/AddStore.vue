@@ -7,7 +7,7 @@
         <van-button type="info" @click="addStore" class="infoBtn">添加商品</van-button>
       </div>
     </div>
-    <FooterFrame seachLight="#1989fa"></FooterFrame>
+    <FooterFrame></FooterFrame>
   </div>
 </template>
 
