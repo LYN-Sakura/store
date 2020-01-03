@@ -1,20 +1,24 @@
 <template>
   <div>
     <h1>搜索</h1>
-    <form>
-      <van-search v-model="value" placeholder="请输入搜索关键词" show-action @search="onSearch(value)" @cancel="onCancel" clear />
-    </form>
+
+    <van-search v-model="value" placeholder="请输入搜索关键词" show-action @search="onSearch(value)" @cancel="onCancel" clear />
+
     <!-- 搜索结果 -->
-    <van-row v-for="i in searchList" :key="i.id" type="flex" justify="space-between">
-      <van-col style="margin-left:20px;text-align:left">{{ i.name }}</van-col>
-      <van-col @click="delData(i.id)"><van-icon name="delete"/></van-col>
-    </van-row>
-    <van-row v-show="rowFlag" type="flex" align="center">
+    <van-swipe-cell v-for="i in searchList" :key="i.id">
+      <van-cell>
+        {{ i.name }}
+      </van-cell>
+      <template slot="right">
+        <van-button square type="danger" text="删除" @click="delData(i.id)" />
+      </template>
+    </van-swipe-cell>
+    <van-row v-show="rowFlag" type="flex" align="center" justify="space-between">
       <van-col span="20" style="margin-left:20px;text-align:left"><h1>搜索历史</h1></van-col>
-      <van-col @click="del"><van-icon name="delete"/></van-col>
+      <van-col><van-button type="primary" icon="delete" @click="del"></van-button></van-col>
     </van-row>
     <van-row type="flex" v-show="rowFlag">
-      <van-col v-for="(i, index) in searchHistory" :key="index" style="backgroundColor:#969799;margin:20px;color:#fff">{{ i }}</van-col>
+      <van-col class="colData" v-for="(i, index) in searchHistory" :key="index">{{ i }}</van-col>
     </van-row>
   </div>
 </template>
@@ -47,9 +51,16 @@ export default {
         var b = `${par},${a}`
         window.localStorage.setItem('hisData', b)
       }
-      return window.localStorage.getItem('hisData').split(',')
+      var arr = window.localStorage.getItem('hisData').split(',')
+      return Array.from(new Set(arr))
     },
     async onSearch(a) {
+      if (a.trim().length === 0) {
+        this.$alert({
+          message: '请输入搜索内容'
+        })
+        return
+      }
       let { data } = await this.$http.get('api/getprodlist')
       this.searchList = data.message
       // this.cellFlag = true
@@ -73,4 +84,24 @@ export default {
 }
 </script>
 
-<style lang="less" scoped></style>
+<style lang="less" scoped>
+.van-search__action {
+  font-size: 25px !important;
+}
+.van-cell {
+  padding: 0px !important;
+  height: 56px !important;
+  line-height: 56px !important;
+  font-size: 25px !important;
+}
+.colData {
+  background-color: #969799;
+  margin: 10px;
+  color: #fff;
+  height: 38px;
+  line-height: 38px;
+  font-size: 20px;
+  border-radius: 3px;
+  padding: 0 8px 0 8px;
+}
+</style>
