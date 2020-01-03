@@ -1,6 +1,6 @@
 <template>
   <div>
-    <HeaderFrame :backIsDispaly="true"></HeaderFrame>
+    <HeaderFrame :backIsDisplay="true"></HeaderFrame>
     <div class="main">
       <h4>{{ msg.title }}</h4>
       <hr />
@@ -31,13 +31,15 @@ export default {
     ...mapState(['chooseGoodsId'])
   },
   methods: {
+    test() {
+      return (this.id = this.$store.commit('get'))
+    },
     async getPicText() {
-      const { data: res } = await this.$http.get(`/api/goods/getdesc/${this.chooseGoodsId}`)
+      const { data: res } = await this.$http.get(`/api/goods/getdesc/${this.$route.params.id}`)
       console.log(res)
       if (res.status !== 0) return this.$toast.fail('获取数据失败')
       // 将获取到的数据保存
       this.msg = res.message[0]
-      console.log(this.msg)
       this.article = res.message[0].content
     }
   }
@@ -52,7 +54,7 @@ body {
   width: 100%;
   min-width: 300px;
   height: 100%;
-  margin-top: 90px;
+  margin-top: 80px;
   bottom: 30px;
   h4 {
     color: #226aff;

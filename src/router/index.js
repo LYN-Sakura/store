@@ -13,14 +13,10 @@ import Img from '../components/showimg/imgxiangqing.vue'
 import AddStore from '../components/addStore/AddStore.vue'
 // 引入新闻阅读模块
 import ShowNews from '../components/news/showNews.vue'
-
 // 引入商品列表模块
 import GoodsList from '../components/goods/List.vue'
 // 引入商品详情模块
 import GoodsDetail from '../components/goods/GoodsDetail.vue'
-import Img from '../components/imgxiangqing.vue'
-// 引入商品评论
-import Goodscomments from '../components/goodside/Goodscomments.vue'
 // 引入商品图文信息
 import Goodsdesc from '../components/goodside/Goodsdesc.vue'
 Vue.use(VueRouter)
@@ -64,12 +60,8 @@ const routes = [
 
   },
   {
-    path: '/goodsdesc',
+    path: '/goodsdesc/:id',
     component: Goodsdesc
-  },
-  {
-    path: '/goodscomments',
-    component: Goodscomments
   }
 ]
 
