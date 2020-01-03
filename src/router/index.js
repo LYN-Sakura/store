@@ -15,6 +15,10 @@ import AddStore from '../components/addStore/AddStore.vue'
 import ShowNews from '../components/news/showNews.vue'
 // 引入新闻详情
 import NewsInfo from '../components/news/newsInfo.vue'
+// 引入商品列表模块
+import GoodsList from '../components/goods/List.vue'
+// 引入商品详情模块
+import GoodsDetail from '../components/goods/GoodsDetail.vue'
 Vue.use(VueRouter)
 
 const routes = [{
@@ -48,6 +52,14 @@ const routes = [{
 {
   path: '/newsInfo',
   component: NewsInfo
+},
+{
+  path: '/goods/list',
+  component: GoodsList
+},
+{
+  path: '/goods/detail/:id',
+  component: GoodsDetail
 }
 ]
 

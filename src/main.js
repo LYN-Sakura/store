@@ -13,6 +13,8 @@ import './assets/font/iconfont.css'
 import HeaderFrame from './components/frame/Headerframe.vue'
 // 引入脚部组件
 import FooterFrame from './components/frame/Footerframe.vue'
+// 引入评论模板
+import Comments from './components/comments/comments.vue'
 Vue.config.productionTip = false
 Vue.prototype.$http = axios
 // 配置请求根路径
@@ -43,6 +45,7 @@ Vue.filter('dateYMD', function(originVal) {
 // 注册全局组件
 Vue.component('HeaderFrame', HeaderFrame)
 Vue.component('FooterFrame', FooterFrame)
+Vue.component('comments', Comments)
 new Vue({
   router,
   store,

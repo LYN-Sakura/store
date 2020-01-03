@@ -19,7 +19,12 @@ import {
   ImagePreview,
   Loading,
   PullRefresh,
-  NoticeBar
+  NoticeBar,
+  List,
+  Cell,
+  Stepper,
+  Toast,
+  Rate
 } from 'vant'
 
 Vue.use(Row)
@@ -41,3 +46,9 @@ Vue.use(Row)
   .use(Loading)
   .use(PullRefresh)
   .use(NoticeBar)
+  .use(PullRefresh)
+  .use(List)
+  .use(Cell)
+  .use(Stepper)
+  .use(Toast)
+  .use(Rate)
