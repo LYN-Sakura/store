@@ -1,6 +1,6 @@
 <template>
   <div>
-    <HeaderFrame :backIsDispaly="true"></HeaderFrame>
+    <HeaderFrame :backIsDisplay="true"></HeaderFrame>
     <div class="main">
       <!-- tab栏区域 -->
       <van-tabs v-model="active" animated @click="getimglist">
@@ -57,12 +57,19 @@ export default {
     //   获取图片分类种类
     getcatelist() {
       this.$http.get('/api/getimgcategory').then(res => {
+        console.log(res.data)
         this.catelist = res.data.message
       })
     },
     // 获取图片列表
-    getimglist(name, title) {
+    getimglist(name) {
       this.$http.get('/api/getimages/' + name).then(res => {
+        console.log(res.data.message)
+        res.data.message.forEach(item => {
+          var substr = item.zhaiyao.substring(0, 30)
+          var data = substr + (item.zhaiyao.length > 30 ? '...' : '')
+          item.zhaiyao = data
+        })
         console.log(res.data.message)
         this.imglist = res.data.message
       })

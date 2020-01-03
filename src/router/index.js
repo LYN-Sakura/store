@@ -8,6 +8,16 @@ import ShareImg from '../components/showimg/share_img.vue'
 // 引入vip
 import Vip from '../components/vip/Vip.vue'
 // 引入图片展示详情页
+import Img from '../components/showimg/imgxiangqing.vue'
+// 引入添加商品模块
+import AddStore from '../components/addStore/AddStore.vue'
+// 引入新闻阅读模块
+import ShowNews from '../components/news/showNews.vue'
+
+// 引入商品列表模块
+import GoodsList from '../components/goods/List.vue'
+// 引入商品详情模块
+import GoodsDetail from '../components/goods/GoodsDetail.vue'
 import Img from '../components/imgxiangqing.vue'
 // 引入商品评论
 import Goodscomments from '../components/goodside/Goodscomments.vue'
@@ -33,16 +43,33 @@ const routes = [
     component: ShareImg
   },
   {
+    path: '/addStore',
+    component: AddStore
+  },
+  {
     path: '/imgxiangqing',
     component: Img
   },
   {
-    path: '/goodscomments',
-    component: Goodscomments
+    path: '/showNews',
+    component: ShowNews
+  },
+  {
+    path: '/goods/list',
+    component: GoodsList
+  },
+  {
+    path: '/goods/detail/:id',
+    component: GoodsDetail
+
   },
   {
     path: '/goodsdesc',
     component: Goodsdesc
+  },
+  {
+    path: '/goodscomments',
+    component: Goodscomments
   }
 ]
 

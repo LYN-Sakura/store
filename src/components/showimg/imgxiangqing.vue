@@ -1,6 +1,6 @@
 <template>
   <div>
-    <HeaderFrame :backIsDispaly="true"></HeaderFrame>
+    <HeaderFrame :backIsDisplay="true"></HeaderFrame>
     <h4>{{ imgform.title }}</h4>
     <span id="left">发表时间:{{ imgform.add_time | dateFormat }}</span>
     <span id="right">点击:{{ imgform.click }}</span>
@@ -49,6 +49,7 @@ export default {
       })
     },
     show(src) {
+      //   ImagePreview([src])
       var arr = []
       for (var i = 0; i < this.imglist.length; i++) {
         arr.push(this.imglist[i].src)

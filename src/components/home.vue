@@ -1,15 +1,15 @@
 <template>
   <div>
-    <HeaderFrame :backIsDispaly="false"></HeaderFrame>
+    <HeaderFrame></HeaderFrame>
     <div class="main">
       <!-- 顶部轮播图区域 -->
       <van-swipe :autoplay="3000" indicator-color="white">
-        <van-swipe-item v-for="(images, index) in lunbo" :key="index"><img v-lazy="images.img" /></van-swipe-item>
+        <van-swipe-item v-for="(images, index) in lunbo" :key="index"><img v-lazy="images.img"/></van-swipe-item>
       </van-swipe>
       <!-- 中部九宫格区域 -->
       <div class="box">
         <div>
-          <router-link to="/">
+          <router-link to="/showNews">
             <img src="..\assets\images\jiu\menu1.png" alt="" />
             <span>新闻资讯</span>
           </router-link>
@@ -21,7 +21,7 @@
           </router-link>
         </div>
         <div>
-          <router-link to="/">
+          <router-link to="/goods/list">
             <img src="..\assets\images\jiu\menu3.png" alt="" />
             <span>商品购买</span>
           </router-link>
@@ -97,7 +97,7 @@ img {
     }
     span {
       display: block;
-      text-align: center;
+      // text-align: center;
       margin-top: 10px;
       color: black;
       font-size: 14px;
