@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-
 // 引入主页
 import Home from '../components/home.vue'
 // 引入图片展示组件
@@ -19,8 +18,15 @@ import NewsInfo from '../components/news/newsInfo.vue'
 import GoodsList from '../components/goods/List.vue'
 // 引入商品详情模块
 import GoodsDetail from '../components/goods/GoodsDetail.vue'
+// 引入商品图文信息
+import Goodsdesc from '../components/goodside/Goodsdesc.vue'
+// 引入搜索模块
+import Search from '../components/search/Search.vue'
+// 引入视频专区
+import Video from '../components/video/Video.vue'
 Vue.use(VueRouter)
 
+Vue.use(VueRouter)
 const routes = [{
   path: '/',
   redirect: '/home'
@@ -60,6 +66,18 @@ const routes = [{
 {
   path: '/goods/detail/:id',
   component: GoodsDetail
+},
+{
+  path: '/search',
+  component: Search
+},
+{
+  path: '/video',
+  component: Video
+},
+{
+  path: '/goodsdesc/:id',
+  component: Goodsdesc
 }
 ]
 

@@ -14,6 +14,7 @@
           </van-row>
           <article id="text"><div v-for="(txt, i) in v.content" :key="i" v-html="txt"></div></article>
         </div>
+        <comments></comments>
       </div>
       <FooterFrame homeLight="#1989fa"></FooterFrame>
     </div>
@@ -31,6 +32,8 @@ export default {
   methods: {
     getUrl() {
       this.newsId = this.$route.params.id
+      // 本地存储评论所需的id
+      window.sessionStorage.setItem('id', this.newsId)
     },
     async getNewsList() {
       let { data: res } = await this.$http.get(`api/getnew/${this.newsId}`)

@@ -12,7 +12,7 @@
         <van-button @click="setcom">发表评论</van-button>
         <ul>
           <div v-for="(item, index) in messagelist" :key="index">
-            <h5>第{{ index + 1 }}楼 &nbsp;&nbsp;&nbsp;用户:{{ item.user_name }} 发表时间:{{ item.add_time | dateFormat }}</h5>
+            <h5>第{{ index + 1 }}楼 &nbsp;&nbsp;&nbsp;用户:{{ item.user_name }} 发表时间: {{ item.add_time | dateYMD }}</h5>
             <li>{{ item.content }}</li>
           </div>
         </ul>
