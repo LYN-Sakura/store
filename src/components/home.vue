@@ -4,25 +4,27 @@
     <div class="main">
       <!-- 顶部轮播图区域 -->
       <van-swipe :autoplay="3000" indicator-color="white">
-        <van-swipe-item v-for="(images, index) in lunbo" :key="index"><img v-lazy="images.img"/></van-swipe-item>
+        <van-swipe-item v-for="(images, index) in lunbo" :key="index">
+          <img v-lazy="images.img" />
+        </van-swipe-item>
       </van-swipe>
       <!-- 中部九宫格区域 -->
       <div class="box">
         <div>
           <router-link to="/showNews">
-            <img src="..\assets\images\jiu\menu1.png" alt="" />
+            <img src="..\assets\images\jiu\menu1.png" alt />
             <span>新闻资讯</span>
           </router-link>
         </div>
         <div>
           <router-link to="/shareimg">
-            <img src="..\assets\images\jiu\menu2.png" alt="" />
+            <img src="..\assets\images\jiu\menu2.png" alt />
             <span>图片分享</span>
           </router-link>
         </div>
         <div>
           <router-link to="/goods/list">
-            <img src="..\assets\images\jiu\menu3.png" alt="" />
+            <img src="..\assets\images\jiu\menu3.png" alt />
             <span>商品购买</span>
           </router-link>
         </div>
@@ -30,19 +32,19 @@
       <div class="box">
         <div>
           <router-link to="/">
-            <img src="..\assets\images\jiu\menu4.png" alt="" />
+            <img src="..\assets\images\jiu\menu4.png" alt />
             <span>留言反馈</span>
           </router-link>
         </div>
         <div>
           <router-link to="/">
-            <img src="..\assets\images\jiu\menu5.png" alt="" />
+            <img src="..\assets\images\jiu\menu5.png" alt />
             <span>视频专区</span>
           </router-link>
         </div>
         <div>
           <router-link to="/">
-            <img src="..\assets\images\jiu\menu6.png" alt="" />
+            <img src="..\assets\images\jiu\menu6.png" alt />
             <span>联系我们</span>
           </router-link>
         </div>
