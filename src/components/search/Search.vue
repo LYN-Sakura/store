@@ -22,7 +22,7 @@
         <span class="colData" v-for="(i, index) in searchHistory" :key="index">{{ i }}</span>
       </van-row>
     </div>
-    <FooterFrame searchLigth="#1989fa"></FooterFrame>
+    <FooterFrame searchLight="#1989fa"></FooterFrame>
   </div>
 </template>
 
