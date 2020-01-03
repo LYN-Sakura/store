@@ -16,13 +16,13 @@
         </div>
         <div>
           <router-link to="/shareimg">
-            <img src="..\assets\images\jiu\menu2.png" alt />
+            <img src="..\assets\images\jiu\menu2.png" alt="" />
             <span>图片分享</span>
           </router-link>
         </div>
         <div>
           <router-link to="/goods/list">
-            <img src="..\assets\images\jiu\menu3.png" alt />
+            <img src="..\assets\images\jiu\menu3.png" alt="" />
             <span>商品购买</span>
           </router-link>
         </div>
@@ -30,19 +30,19 @@
       <div class="box">
         <div>
           <router-link to="/">
-            <img src="..\assets\images\jiu\menu4.png" alt />
+            <img src="..\assets\images\jiu\menu4.png" alt="" />
             <span>留言反馈</span>
           </router-link>
         </div>
         <div>
-          <router-link to="/">
-            <img src="..\assets\images\jiu\menu5.png" alt />
+          <router-link to="/video">
+            <img src="..\assets\images\jiu\menu5.png" alt="" />
             <span>视频专区</span>
           </router-link>
         </div>
         <div>
           <router-link to="/">
-            <img src="..\assets\images\jiu\menu6.png" alt />
+            <img src="..\assets\images\jiu\menu6.png" alt="" />
             <span>联系我们</span>
           </router-link>
         </div>

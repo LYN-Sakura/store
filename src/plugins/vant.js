@@ -25,10 +25,14 @@ import {
   Stepper,
   Toast,
   Rate,
+  SubmitBar,
+  Search,
   Card,
-  SubmitBar
+  Dialog,
+  SwipeCell,
+  Divider,
+  Overlay
 } from 'vant'
-
 Vue.use(Row)
   .use(Col)
   .use(Button)
@@ -56,3 +60,10 @@ Vue.use(Row)
   .use(Rate)
   .use(Card)
   .use(SubmitBar)
+  .use(Search)
+  .use(Card)
+  .use(SwipeCell)
+  .use(Divider)
+  .use(Overlay)
+Vue.prototype.$alert = Dialog.alert
+Vue.prototype.$confirm = Dialog.confirm

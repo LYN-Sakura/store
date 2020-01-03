@@ -1,6 +1,6 @@
 <template>
   <div>
-    <HeaderFrame :backIsDisplay="true"></HeaderFrame>
+    <HeaderFrame :backIsDispaly="true"></HeaderFrame>
     <div style="padding:10px ; margin:40px 0 ; text-align:left ">
       <div class="swipe">
         <van-swipe :autoplay="3000">

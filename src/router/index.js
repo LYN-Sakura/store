@@ -20,53 +20,71 @@ import NewsInfo from '../components/news/newsInfo.vue'
 import GoodsList from '../components/goods/List.vue'
 // 引入商品详情模块
 import GoodsDetail from '../components/goods/GoodsDetail.vue'
+// 引入商品图文信息
+import Goodsdesc from '../components/goodside/Goodsdesc.vue'
+// 引入搜索模块
+import Search from '../components/search/Search.vue'
+// 引入视频专区
+import Video from '../components/video/Video.vue'
 Vue.use(VueRouter)
 
-const routes = [
-  {
-    path: '/',
-    redirect: '/home'
-  },
-  {
-    path: '/home',
-    component: Home
-  },
-  {
-    path: '/vip',
-    component: Vip
-  },
-  {
-    path: '/shareimg',
-    component: ShareImg
-  },
-  {
-    path: '/addStore',
-    component: AddStore
-  },
-  {
-    path: '/imgxiangqing',
-    component: Img
-  },
-  {
-    path: '/showNews',
-    component: ShowNews
-  },
-  {
-    path: '/newsInfo',
-    component: NewsInfo
-  },
-  {
-    path: '/goods/list',
-    component: GoodsList
-  },
-  {
-    path: '/goods/detail/:id',
-    component: GoodsDetail
-  },
-  {
-    path: '/shopcar',
-    component: Shopcar
-  }
+Vue.use(VueRouter)
+const routes = [{
+  path: '/',
+  redirect: '/home'
+},
+{
+  path: '/home',
+  component: Home
+},
+{
+  path: '/vip',
+  component: Vip
+},
+{
+  path: '/shareimg',
+  component: ShareImg
+},
+{
+  path: '/addStore',
+  component: AddStore
+},
+{
+  path: '/imgxiangqing',
+  component: Img
+},
+{
+  path: '/news/showNews',
+  component: ShowNews
+},
+{
+  path: '/news/newsInfo/:id',
+  component: NewsInfo
+},
+{
+  path: '/goods/list',
+  component: GoodsList
+},
+{
+  path: '/goods/detail/:id',
+  component: GoodsDetail
+},
+{
+  path: '/search',
+  component: Search
+},
+{
+  path: '/video',
+  component: Video
+},
+{
+  path: '/goodsdesc/:id',
+  component: Goodsdesc
+},
+{
+  path: '/shopcar',
+  component: Shopcar
+}
 ]
 
 const router = new VueRouter({
