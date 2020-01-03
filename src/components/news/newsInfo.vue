@@ -30,7 +30,7 @@ export default {
   },
   methods: {
     getUrl() {
-      this.newsId = parseInt(this.$route.query.id)
+      this.newsId = this.$route.params.id
     },
     async getNewsList() {
       let { data: res } = await this.$http.get(`api/getnew/${this.newsId}`)
@@ -55,7 +55,6 @@ export default {
         val.content = newContent
       })
       this.offLoading()
-      console.log(this.newInfoList)
     },
     // 关闭加载动画
     offLoading() {

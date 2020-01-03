@@ -34,6 +34,10 @@ export default {
   props: ['homeLight', 'vipLight', 'seachLight'],
   data() {
     return {}
+  },
+  methods: {},
+  created() {
+    this.$store.commit('get')
   }
 }
 </script>
