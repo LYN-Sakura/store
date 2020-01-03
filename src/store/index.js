@@ -5,6 +5,8 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    chooseGoodsId: '87',
+    chooseGoodsNum: [1],
     arr: []
   },
   mutations: {

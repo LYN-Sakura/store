@@ -14,7 +14,7 @@
         </router-link>
       </van-col>
       <van-col span="6">
-        <router-link to="/">
+        <router-link to="/Shopcar">
           <van-icon name="cart-o" info="0" />
           <div>购物车</div>
         </router-link>

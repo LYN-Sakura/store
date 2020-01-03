@@ -1,5 +1,6 @@
 <template>
   <div>
+    <HeaderFrame :backIsDisplay = 'true'></HeaderFrame>
     <div class="main">
       <!--goods list-->
       <van-row v-for="(item, index) in goodsList" :key="index">
@@ -38,18 +39,17 @@ export default {
   methods: {
     // 获取商品列表数据
     async getShopCar() {
+      this.$store.commit('get')
       const { data: res } = await this.$http.get(`/api/goods/getshopcarlist/${this.chooseGoodsId}`)
       this.goodsList = res.message
       this.chooseGoodsNum.forEach((item, index) => {
         this.goodsList[index].cou = item
       })
       this.totalPrice()
-      console.log(this.goodsList)
     },
     // 添加商品数量
     addGoods(i) {
       this.goodsList[i].cou++
-      console.log(this.goodsList)
       this.allPrice = 0
       this.totalPrice()
     },
@@ -81,6 +81,10 @@ export default {
 </script>
 
 <style scoped lang="less">
+.main {
+  height: 100%;
+  margin-top: 40px;
+}
 .van-card {
   margin-bottom: 20px;
 }
