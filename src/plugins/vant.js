@@ -18,7 +18,8 @@ import {
   Notify,
   ImagePreview,
   Loading,
-  PullRefresh
+  PullRefresh,
+  NoticeBar
 } from 'vant'
 
 Vue.use(Row)
@@ -39,3 +40,4 @@ Vue.use(Row)
   .use(ImagePreview)
   .use(Loading)
   .use(PullRefresh)
+  .use(NoticeBar)

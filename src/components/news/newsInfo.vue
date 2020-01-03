@@ -12,7 +12,7 @@
               <div class="rightClick">点击次数：{{ v.click }}</div>
             </div>
           </van-row>
-          <div id="text" v-html="v.content"></div>
+          <article id="text"><div v-for="(txt, i) in v.content" :key="i" v-html="txt"></div></article>
         </div>
       </div>
       <FooterFrame homeLight="#1989fa"></FooterFrame>
@@ -34,7 +34,6 @@ export default {
     },
     async getNewsList() {
       let { data: res } = await this.$http.get(`api/getnew/${this.newsId}`)
-      console.log(res)
       if (res.status !== 0) {
         return this.$notify({
           color: '#fff',
@@ -44,6 +43,17 @@ export default {
         })
       }
       this.newInfoList = res.message
+      this.newInfoList.forEach(val => {
+        val.content = val.content.split('</p>')
+        val.content.splice(val.content.length - 1, 1)
+        let newContent = []
+        val.content.forEach(v => {
+          v = v.replace(/(<p>|\r|\t|\n)+/g, '')
+          v = v.replace(/<b>/g, '<b style="font-size: 17px;">')
+          newContent.push(v)
+        })
+        val.content = newContent
+      })
       this.offLoading()
       console.log(this.newInfoList)
     },
@@ -86,8 +96,12 @@ h3 {
 .pad {
   padding: 0 10px;
 }
-.text p {
-  color: red;
-  text-align: left;
+#text {
+  margin-top: 10px;
+  div {
+    text-indent: 2em;
+    font-size: 14px;
+    margin: 5px 0;
+  }
 }
 </style>

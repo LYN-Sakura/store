@@ -51,7 +51,6 @@ export default {
       })
     },
     show(src) {
-      //   ImagePreview([src])
       var arr = []
       for (var i = 0; i < this.imglist.length; i++) {
         arr.push(this.imglist[i].src)
