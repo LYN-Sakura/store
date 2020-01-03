@@ -7,7 +7,7 @@
       <div class="art" v-html="article" ref="artRef"></div>
     </div>
     <!-- 底部区域 -->
-    <FooterFrame class="foot" homeLight="#1989fa"></FooterFrame>
+    <FooterFrame class="foot"></FooterFrame>
   </div>
 </template>
 <script>

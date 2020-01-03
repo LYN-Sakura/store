@@ -24,6 +24,8 @@ import Goodsdesc from '../components/goodside/Goodsdesc.vue'
 import Search from '../components/search/Search.vue'
 // 引入视频专区
 import Video from '../components/video/Video.vue'
+// 引入商品讨论
+import GoodsSpeak from '../components/goodside/GoodsSpeak.vue'
 Vue.use(VueRouter)
 
 Vue.use(VueRouter)
@@ -78,6 +80,10 @@ const routes = [{
 {
   path: '/goodsdesc/:id',
   component: Goodsdesc
+},
+{
+  path: '/goodscomments/:id',
+  component: GoodsSpeak
 }
 ]
 

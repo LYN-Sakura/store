@@ -1,6 +1,6 @@
 <template>
   <div>
-    <HeaderFrame :backIsDispaly="true"></HeaderFrame>
+    <HeaderFrame :backIsDisplay="true"></HeaderFrame>
     <div style="padding:10px ; margin:40px 0 ; text-align:left ">
       <div class="swipe">
         <van-swipe :autoplay="3000">
@@ -39,7 +39,7 @@
         </div>
       </div>
     </div>
-    <FooterFrame homeLight="#1989fa"></FooterFrame>
+    <FooterFrame></FooterFrame>
   </div>
 </template>
 
