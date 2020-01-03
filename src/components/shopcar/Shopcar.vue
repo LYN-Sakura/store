@@ -1,18 +1,19 @@
 <template>
   <div>
-    <HeaderFrame :backIsDisplay = 'true'></HeaderFrame>
+    <HeaderFrame :backIsDisplay="true"></HeaderFrame>
     <div class="main">
       <!--goods list-->
       <van-row v-for="(item, index) in goodsList" :key="index">
         <van-card :num="item.cou" :price="item.sell_price" :title="item.title" :thumb="item.thumb_path">
           <div slot="footer">
-            <van-button size="mini" id="numBtn" @click="subGoods(index)" :disabled="item.cou <= 1 ? true : false">-</van-button>
-            <input type="number" id="numInput" v-model="item.cou" @blur="inputText(item.cou, index)" />
-            <van-button size="mini" @click="addGoods(index)">+</van-button>
+            <van-button size="mini" id="numBtn" @click="subGoods(item, index)" :disabled="item.cou <= 1 ? true : false">-</van-button>
+            <input type="number" id="numInput" v-model="item.cou" @blur="inputText(item, index)" />
+            <van-button size="mini" @click="addGoods(item, index)">+</van-button>
           </div>
         </van-card>
       </van-row>
       <!--submit order-->
+      <van-button id="delBtn" type="primary" @click="delList">删除订单</van-button>
       <van-submit-bar :price="allPrice * 100" button-text="提交订单" button-type="danger" />
     </div>
   </div>
@@ -25,48 +26,79 @@ export default {
     return {
       // 选择的商品数据列表
       goodsList: [],
+      // 选择的商品id
+      goodsId: [],
       // 总价
       allPrice: 0
     }
   },
   components: {},
   computed: {
-    ...mapState(['chooseGoodsId', 'chooseGoodsNum'])
+    ...mapState(['arr'])
   },
   created() {
+    this.$store.commit('get')
     this.getShopCar()
   },
   methods: {
     // 获取商品列表数据
     async getShopCar() {
-      this.$store.commit('get')
-      const { data: res } = await this.$http.get(`/api/goods/getshopcarlist/${this.chooseGoodsId}`)
-      this.goodsList = res.message
-      this.chooseGoodsNum.forEach((item, index) => {
-        this.goodsList[index].cou = item
+      this.arr.forEach(item => {
+        this.goodsId.push(item.id)
       })
-      this.totalPrice()
+      this.goodsId = this.goodsId.join(',')
+      if (this.arr.length === 0) {
+        return false
+      } else {
+        const { data: res } = await this.$http.get(`/api/goods/getshopcarlist/${this.goodsId}`)
+        this.goodsList = res.message
+        this.arr.forEach((item, index) => {
+          this.goodsList[index].cou = item.num
+        })
+        this.totalPrice()
+        console.log(this.arr)
+      }
     },
     // 添加商品数量
-    addGoods(i) {
+    addGoods(n, i) {
       this.goodsList[i].cou++
+      const add = {
+        id: '' + n.id,
+        num: n.cou
+      }
+      this.$store.commit('editAdd', add)
       this.allPrice = 0
       this.totalPrice()
     },
     // 减少商品数量
-    subGoods(i) {
+    subGoods(n, i) {
       this.goodsList[i].cou--
+      const add = {
+        id: '' + n.id,
+        num: n.cou
+      }
+      this.$store.commit('editAdd', add)
       this.allPrice = 0
       this.totalPrice()
     },
     // 输入商品数量
-    inputText(num, i) {
-      if (num <= 1) {
+    inputText(n, i) {
+      if (n.cou <= 1) {
         this.goodsList[i].cou = 1
+        const add = {
+          id: '' + n.id,
+          num: n.cou
+        }
+        this.$store.commit('editAdd', add)
         this.allPrice = 0
         this.totalPrice()
         return false
       }
+      const add = {
+        id: '' + n.id,
+        num: n.cou
+      }
+      this.$store.commit('editAdd', add)
       this.allPrice = 0
       this.totalPrice()
     },
@@ -75,6 +107,10 @@ export default {
       this.goodsList.forEach(item => {
         this.allPrice += item.sell_price * item.cou
       })
+    },
+    delList() {
+      localStorage.clear()
+      location.reload()
     }
   }
 }
@@ -82,6 +118,7 @@ export default {
 
 <style scoped lang="less">
 .main {
+  position: relative;
   height: 100%;
   margin-top: 40px;
 }
@@ -119,11 +156,15 @@ export default {
 .van-card__price-integer {
   color: red;
 }
+#delBtn {
+  position: fixed;
+  left: 0;
+  bottom: 50px;
+}
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
 }
-
 input[type='number'] {
   -moz-appearance: textfield;
 }
