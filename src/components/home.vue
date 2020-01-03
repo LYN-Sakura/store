@@ -21,7 +21,7 @@
           </router-link>
         </div>
         <div>
-          <router-link to="/">
+          <router-link to="/goods/list">
             <img src="..\assets\images\jiu\menu3.png" alt="" />
             <span>商品购买</span>
           </router-link>
@@ -97,7 +97,7 @@ img {
     }
     span {
       display: block;
-      text-align: center;
+      // text-align: center;
       margin-top: 10px;
       color: black;
       font-size: 14px;

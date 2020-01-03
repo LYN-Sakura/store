@@ -1,6 +1,29 @@
 import Vue from 'vue'
 
-import { Row, Col, Button, Grid, GridItem, Swipe, SwipeItem, Lazyload, Icon, Image, Tab, Tabs, Field, CellGroup, Notify, ImagePreview, NoticeBar } from 'vant'
+import {
+  Row,
+  Col,
+  Button,
+  Grid,
+  GridItem,
+  Swipe,
+  SwipeItem,
+  Lazyload,
+  Icon,
+  Image,
+  Tab,
+  Tabs,
+  Field,
+  CellGroup,
+  Notify,
+  ImagePreview,
+  NoticeBar,
+  PullRefresh,
+  List,
+  Cell,
+  Stepper,
+  Toast
+} from 'vant'
 
 Vue.use(Row)
   .use(Col)
@@ -19,3 +42,8 @@ Vue.use(Row)
   .use(Notify)
   .use(ImagePreview)
   .use(NoticeBar)
+  .use(PullRefresh)
+  .use(List)
+  .use(Cell)
+  .use(Stepper)
+  .use(Toast)
