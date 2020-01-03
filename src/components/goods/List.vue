@@ -1,6 +1,6 @@
 <template>
   <div>
-    <HeaderFrame></HeaderFrame>
+    <HeaderFrame :backIsDisplay="true"></HeaderFrame>
     <div class="goods_list">
       <van-pull-refresh v-model="isLoading" @refresh="onRefresh">
         <van-list v-model="loading" :finished="finished" finished-text="没有更多了" @load="onLoad">
