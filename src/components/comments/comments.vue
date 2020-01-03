@@ -7,6 +7,7 @@
         <van-field v-model="message" rows="2" autosize clearable type="textarea" maxlength="50" placeholder="请输入留言" show-word-limit ref="comform" />
       </van-cell-group>
       <div class="com">
+        <div>请根据你的满意度进行打分:</div>
         <van-rate v-model="value" icon="like" void-icon="like-o" touchable allow-half />
         <van-button @click="setcom">发表评论</van-button>
         <ul>
@@ -18,6 +19,13 @@
       </div>
       <van-button class="footbtn" @click="addsub">加载更多</van-button>
     </div>
+    <!-- 彩蛋区 -->
+    <van-overlay :show="show" @click="show = false">
+      <div class="wrapper">
+        <div>谢谢亲的五星好评哦!</div>
+        <img src="../../assets/images/u=446745173,1825858413&fm=26&gp=0[1].jpg" />
+      </div>
+    </van-overlay>
   </div>
 </template>
 
@@ -39,7 +47,8 @@ export default {
       //   截取长度
       sub: 5,
       //   总共list的条数
-      maxlist: []
+      maxlist: [],
+      show: false
     }
   },
   created() {
@@ -55,7 +64,6 @@ export default {
     //   获取评论列表
     getmeslist() {
       this.$http.get('/api/getcomments/' + this.id + '?pageindex=1').then(res => {
-        console.log(res.data)
         this.maxlist = res.data.message
         if (res.data.message.length > 5) {
           var message = res.data.message.slice(0, this.sub)
@@ -65,14 +73,22 @@ export default {
     },
     // 发送评论
     setcom() {
+      if (this.value === 0) {
+        return Toast.fail('请先进行评分')
+      } else if (this.value === 5) {
+        this.show = true
+      }
       var params = new URLSearchParams()
       params.append('content', this.$refs.comform.value)
-      this.$http.post('/api/postcomment/' + this.id + params).then(res => {
+      this.$http.post('/api/postcomment/' + this.id, params).then(res => {
         console.log(res.data)
         if (res.data.status !== 0) {
           return Toast.fail('请求服务器失败')
         }
         Toast.success('发表评论成功')
+        this.message = ''
+        this.value = 0
+        this.getmeslist()
       })
     },
     // 增加显示条数
@@ -129,5 +145,20 @@ h4 {
 .footbtn {
   border: 1px solid red;
   color: red;
+}
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  img {
+    width: 200px;
+    height: 200px;
+  }
+  div {
+    height: 100px;
+    color: white;
+    font-size: 25px;
+  }
 }
 </style>

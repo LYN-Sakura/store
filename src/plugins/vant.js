@@ -24,7 +24,8 @@ import {
   Cell,
   Stepper,
   Toast,
-  Rate
+  Rate,
+  Overlay
 } from 'vant'
 
 Vue.use(Row)
@@ -52,3 +53,4 @@ Vue.use(Row)
   .use(Stepper)
   .use(Toast)
   .use(Rate)
+  .use(Overlay)
