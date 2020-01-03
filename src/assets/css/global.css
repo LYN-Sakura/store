@@ -1,0 +1,29 @@
+html,
+body,
+#app {
+	min-width: 300px;
+}
+
+.main {
+	width: 100%;
+	height: 728px;
+	border-top: 1px solid #fff;
+	margin-top: 39px;
+}
+
+.showLoading {
+	display: none;
+}
+.van-loading{
+	text-align: center;
+	margin-top: 20px;
+}
+/*商品列表页需要的样式 */
+.van-list__finished-text {
+	width: 100%;
+}
+
+.van-cell__value--alone {
+	color: #323233;
+	text-align: center;
+}

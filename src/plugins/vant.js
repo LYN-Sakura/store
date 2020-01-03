@@ -1,18 +1,54 @@
 import Vue from 'vue'
+
 import {
-  Button,
   Row,
   Col,
-  SubmitBar,
-  Card,
+  Button,
+  Grid,
+  GridItem,
+  Swipe,
+  SwipeItem,
+  Lazyload,
+  Icon,
+  Image,
+  Tab,
+  Tabs,
   Field,
-  Toast
+  CellGroup,
+  Notify,
+  ImagePreview,
+  Loading,
+  PullRefresh,
+  NoticeBar,
+  List,
+  Cell,
+  Stepper,
+  Toast,
+  Rate
 } from 'vant'
 
-Vue.use(Button)
 Vue.use(Row)
-Vue.use(Col)
-Vue.use(SubmitBar)
-Vue.use(Card)
-Vue.use(Field)
-Vue.use(Toast)
+  .use(Col)
+  .use(Button)
+  .use(Grid)
+  .use(GridItem)
+  .use(Swipe)
+  .use(SwipeItem)
+  .use(Lazyload)
+  .use(Icon)
+  .use(Image)
+  .use(Tab)
+  .use(Tabs)
+  .use(Field)
+  .use(CellGroup)
+  .use(Notify)
+  .use(ImagePreview)
+  .use(Loading)
+  .use(PullRefresh)
+  .use(NoticeBar)
+  .use(PullRefresh)
+  .use(List)
+  .use(Cell)
+  .use(Stepper)
+  .use(Toast)
+  .use(Rate)
