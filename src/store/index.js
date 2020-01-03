@@ -28,7 +28,8 @@ export default new Vuex.Store({
     },
     get(state) {
       const arr = window.localStorage.getItem('arr')
-      state.arr = JSON.parse(arr)
+      state.arr = JSON.parse(arr) || []
+      console.log(state.arr)
       // 次数
       if (state.arr.length) {
         let num = 0
