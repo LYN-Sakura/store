@@ -35,7 +35,7 @@
           </router-link>
         </div>
         <div>
-          <router-link to="/">
+          <router-link to="/video">
             <img src="..\assets\images\jiu\menu5.png" alt="" />
             <span>视频专区</span>
           </router-link>
