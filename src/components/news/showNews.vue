@@ -6,7 +6,7 @@
         <div class="lists">
           <van-loading size="30px" color="#1989fa" />
           <van-row class="list" v-for="v in newsList" :key="v.id">
-            <router-link class="aLink" :to="`/newsInfo?id=${v.id}`">
+            <router-link class="aLink" :to="`/news/newsInfo/${v.id}`">
               <div class="imgBox" span="1">
                 <!-- 图片 -->
                 <img v-for="(img, i) in v.img_url" :key="i" v-lazy="img" />

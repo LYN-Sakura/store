@@ -4,18 +4,18 @@
     <div class="main">
       <!-- 顶部轮播图区域 -->
       <van-swipe :autoplay="3000" indicator-color="white">
-        <van-swipe-item v-for="(images, index) in lunbo" :key="index"><img v-lazy="images.img"/></van-swipe-item>
+        <van-swipe-item v-for="(images, index) in lunbo" :key="index"><img v-lazy="images.img" /></van-swipe-item>
       </van-swipe>
       <!-- 中部九宫格区域 -->
       <div class="box">
         <div>
-          <router-link to="/showNews">
+          <router-link to="/news/showNews">
             <img src="..\assets\images\jiu\menu1.png" alt="" />
             <span>新闻资讯</span>
           </router-link>
         </div>
         <div>
-          <router-link to="/shareimg">
+          <router-link to="/news/shareimg">
             <img src="..\assets\images\jiu\menu2.png" alt="" />
             <span>图片分享</span>
           </router-link>

@@ -46,11 +46,11 @@ const routes = [{
   component: Img
 },
 {
-  path: '/showNews',
+  path: '/news/showNews',
   component: ShowNews
 },
 {
-  path: '/newsInfo',
+  path: '/news/newsInfo/:id',
   component: NewsInfo
 },
 {
