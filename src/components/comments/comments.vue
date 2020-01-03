@@ -11,7 +11,7 @@
         <van-button @click="setcom">发表评论</van-button>
         <ul>
           <div v-for="(item, index) in messagelist" :key="index">
-            <h5>第{{ index + 1 }}楼 &nbsp;&nbsp;&nbsp;用户:{{ item.user_name }} 发表时间:{{ item.add_time | dateFormat }}</h5>
+            <h5>第{{ index + 1 }}楼 &nbsp;&nbsp;&nbsp;用户:{{ item.user_name }} 发表时间: {{ item.add_time | dateYMD }}</h5>
             <li>{{ item.content }}</li>
           </div>
         </ul>
@@ -65,9 +65,11 @@ export default {
     },
     // 发送评论
     setcom() {
-      var params = new URLSearchParams()
-      params.append('content', this.$refs.comform.value)
-      this.$http.post('/api/postcomment/' + this.id + params).then(res => {
+      // var params = new URLSearchParams()
+      // params.append('content', this.$refs.comform.value)
+      // let params = `?content=${this.$refs.comform.value}`
+      console.log(this.$refs.comform.value)
+      this.$http.post('/api/postcomment/' + this.id + `content=${this.message}`).then(res => {
         console.log(res.data)
         if (res.data.status !== 0) {
           return Toast.fail('请求服务器失败')
