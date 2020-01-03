@@ -22,6 +22,9 @@ import GoodsDetail from '../components/goods/GoodsDetail.vue'
 import Goodsdesc from '../components/goodside/Goodsdesc.vue'
 // 引入搜索模块
 import Search from '../components/search/Search.vue'
+// 引入视频专区
+import Video from '../components/video/Video.vue'
+Vue.use(VueRouter)
 
 Vue.use(VueRouter)
 const routes = [{
@@ -67,6 +70,10 @@ const routes = [{
 {
   path: '/search',
   component: Search
+},
+{
+  path: '/video',
+  component: Video
 },
 {
   path: '/goodsdesc/:id',
