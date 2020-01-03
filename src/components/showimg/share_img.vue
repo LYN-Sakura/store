@@ -7,7 +7,7 @@
         <van-tab title="全部" name="0">
           <div class="box" v-for="item in imglist" :key="item.id">
             <router-link to="/imgxiangqing">
-              <img :src="item.img_url" @click="saveid(item.id)" />
+              <img :src="item.img_url" @click="saveid(item.id)" v-lazy="item.img_url" />
             </router-link>
             <!-- 黑色区域 -->
             <div class="showdon">
