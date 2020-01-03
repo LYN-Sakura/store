@@ -20,7 +20,7 @@
         </router-link>
       </van-col>
       <van-col span="6">
-        <router-link to="/" :style="'color:' + seachLight">
+        <router-link to="/search" :style="'color:' + searchLight">
           <van-icon name="search" />
           <div>搜索</div>
         </router-link>
@@ -31,7 +31,7 @@
 
 <script>
 export default {
-  props: ['homeLight', 'vipLight', 'seachLight'],
+  props: ['homeLight', 'vipLight', 'searchLight'],
   data() {
     return {}
   },

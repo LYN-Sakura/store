@@ -19,6 +19,8 @@ import NewsInfo from '../components/news/newsInfo.vue'
 import GoodsList from '../components/goods/List.vue'
 // 引入商品详情模块
 import GoodsDetail from '../components/goods/GoodsDetail.vue'
+// 引入搜索模块
+import Search from '../components/search/Search.vue'
 Vue.use(VueRouter)
 
 const routes = [{
@@ -60,6 +62,10 @@ const routes = [{
 {
   path: '/goods/detail/:id',
   component: GoodsDetail
+},
+{
+  path: '/search',
+  component: Search
 }
 ]
 

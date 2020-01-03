@@ -5,7 +5,7 @@
       返回
     </div>
     <div>黑马程序员.vant</div>
-    <div class="add" v-show="addIsDisplay">添加</div>
+    <div class="add" @click="toAdd" v-show="addIsDisplay">添加</div>
   </header>
 </template>
 
@@ -18,6 +18,9 @@ export default {
   methods: {
     goback() {
       this.$router.go(-1)
+    },
+    toAdd() {
+      this.$router.push('/addStore')
     }
   }
 }
