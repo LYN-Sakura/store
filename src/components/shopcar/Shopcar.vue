@@ -1,17 +1,19 @@
 <template>
   <div>
-    <!--goods list-->
-    <van-row v-for="(item, index) in goodsList" :key="index">
-      <van-card :num="item.cou" :price="item.sell_price" :title="item.title" :thumb="item.thumb_path">
-        <div slot="footer">
-          <van-button size="mini" id="numBtn" @click="subGoods(index)" :disabled="item.cou <= 1 ? true : false">-</van-button>
-          <input type="number" id="numInput" v-model="item.cou" @blur="inputText(item.cou, index)" />
-          <van-button size="mini" @click="addGoods(index)">+</van-button>
-        </div>
-      </van-card>
-    </van-row>
-    <!--submit order-->
-    <van-submit-bar :price="allPrice*100" button-text="提交订单" button-type="danger" />
+    <div class="main">
+      <!--goods list-->
+      <van-row v-for="(item, index) in goodsList" :key="index">
+        <van-card :num="item.cou" :price="item.sell_price" :title="item.title" :thumb="item.thumb_path">
+          <div slot="footer">
+            <van-button size="mini" id="numBtn" @click="subGoods(index)" :disabled="item.cou <= 1 ? true : false">-</van-button>
+            <input type="number" id="numInput" v-model="item.cou" @blur="inputText(item.cou, index)" />
+            <van-button size="mini" @click="addGoods(index)">+</van-button>
+          </div>
+        </van-card>
+      </van-row>
+      <!--submit order-->
+      <van-submit-bar :price="allPrice * 100" button-text="提交订单" button-type="danger" />
+    </div>
   </div>
 </template>
 
@@ -28,7 +30,7 @@ export default {
   },
   components: {},
   computed: {
-    ...mapState(['chooseGoodsId'])
+    ...mapState(['chooseGoodsId', 'chooseGoodsNum'])
   },
   created() {
     this.getShopCar()
@@ -38,6 +40,9 @@ export default {
     async getShopCar() {
       const { data: res } = await this.$http.get(`/api/goods/getshopcarlist/${this.chooseGoodsId}`)
       this.goodsList = res.message
+      this.chooseGoodsNum.forEach((item, index) => {
+        this.goodsList[index].cou = item
+      })
       this.totalPrice()
       console.log(this.goodsList)
     },
@@ -58,6 +63,8 @@ export default {
     inputText(num, i) {
       if (num <= 1) {
         this.goodsList[i].cou = 1
+        this.allPrice = 0
+        this.totalPrice()
         return false
       }
       this.allPrice = 0

@@ -6,7 +6,6 @@ import {
   SubmitBar,
   Card,
   Field,
-  NumberKeyboard,
   Toast
 } from 'vant'
 
@@ -16,5 +15,4 @@ Vue.use(Col)
 Vue.use(SubmitBar)
 Vue.use(Card)
 Vue.use(Field)
-Vue.use(NumberKeyboard)
 Vue.use(Toast)
