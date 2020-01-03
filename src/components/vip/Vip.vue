@@ -1,6 +1,6 @@
 <template>
   <div class="vip">
-    <HeaderFrame :backIsDispaly="true"></HeaderFrame>
+    <HeaderFrame :backIsDisplay="true"></HeaderFrame>
     <div class="main">
       <van-icon class="setBtn" name="setting-o" />
       <h3>正在加班加点开发中，敬请期待！</h3>

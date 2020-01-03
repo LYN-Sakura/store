@@ -11,6 +11,8 @@ import Vip from '../components/vip/Vip.vue'
 import Img from '../components/showimg/imgxiangqing.vue'
 // 引入添加商品模块
 import AddStore from '../components/addStore/AddStore.vue'
+// 引入新闻阅读模块
+import ShowNews from '../components/news/showNews.vue'
 Vue.use(VueRouter)
 
 const routes = [{
@@ -36,6 +38,10 @@ const routes = [{
 {
   path: '/imgxiangqing',
   component: Img
+},
+{
+  path: '/showNews',
+  component: ShowNews
 }
 ]
 
