@@ -16,6 +16,7 @@
           </div>
         </ul>
       </div>
+      <van-button class="footbtn" @click="addsub">加载更多</van-button>
     </div>
   </div>
 </template>
@@ -32,8 +33,13 @@ export default {
       message: '',
       //   星星数量
       value: 0,
+      //   截取后的list长度
       messagelist: [],
-      id: ''
+      id: '',
+      //   截取长度
+      sub: 5,
+      //   总共list的条数
+      maxlist: []
     }
   },
   created() {
@@ -50,7 +56,11 @@ export default {
     getmeslist() {
       this.$http.get('/api/getcomments/' + this.id + '?pageindex=1').then(res => {
         console.log(res.data)
-        this.messagelist = res.data.message
+        this.maxlist = res.data.message
+        if (res.data.message.length > 5) {
+          var message = res.data.message.slice(0, this.sub)
+        }
+        this.messagelist = message
       })
     },
     // 发送评论
@@ -64,6 +74,15 @@ export default {
         }
         Toast.success('发表评论成功')
       })
+    },
+    // 增加显示条数
+    addsub() {
+      if (this.messagelist < this.maxlist) {
+        this.sub = this.sub + 5
+        this.getmeslist()
+      } else {
+        return Toast.fail('没有更多评论了')
+      }
     }
   }
 }
@@ -106,5 +125,9 @@ h4 {
       line-height: 35px;
     }
   }
+}
+.footbtn {
+  border: 1px solid red;
+  color: red;
 }
 </style>
