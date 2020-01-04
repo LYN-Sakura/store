@@ -4,17 +4,20 @@
     <div class="main">
       <!--goods list-->
       <van-row v-for="(item, index) in goodsList" :key="index">
-        <van-card :num="item.cou" :price="item.sell_price" :title="item.title" :thumb="item.thumb_path">
+        <van-card :num="item.cou" :price="item.sell_price + '.00'" :title="item.title" :thumb="item.thumb_path">
           <div slot="footer">
             <van-button size="mini" id="numBtn" @click="subGoods(item, index)" :disabled="item.cou <= 1 ? true : false">-</van-button>
-            <input type="number" id="numInput" v-model="item.cou" @blur="inputText(item, index)" />
+            <input type="number" id="numInput" v-model="item.cou" @blur="inputText(item, index)" @dblclick="clearText()" />
             <van-button size="mini" @click="addGoods(item, index)">+</van-button>
+            <van-button id="danBtn" type="danger" @click="danDel(index)">删除</van-button>
           </div>
         </van-card>
       </van-row>
       <!--submit order-->
-      <van-button id="delBtn" type="primary" @click="delList">删除订单</van-button>
-      <van-submit-bar :price="allPrice * 100" button-text="提交订单" button-type="danger" />
+      <van-submit-bar :price="allPrice * 100" button-text="提交订单" button-type="primary">
+        <van-button v-show="isBtn" id="delBtn" type="danger" @click="delList">删除订单</van-button>
+      </van-submit-bar>
+      <div v-show="isImg" id="showImg"><img src="../../assets/images/space.jpg" alt="" /></div>
     </div>
   </div>
 </template>
@@ -29,7 +32,9 @@ export default {
       // 选择的商品id
       goodsId: [],
       // 总价
-      allPrice: 0
+      allPrice: 0,
+      isImg: false,
+      isBtn: true
     }
   },
   components: {},
@@ -48,6 +53,8 @@ export default {
       })
       this.goodsId = this.goodsId.join(',')
       if (this.arr.length === 0) {
+        this.isImg = true
+        this.isBtn = false
         return false
       } else {
         const { data: res } = await this.$http.get(`/api/goods/getshopcarlist/${this.goodsId}`)
@@ -56,6 +63,8 @@ export default {
           this.goodsList[index].cou = item.num
         })
         this.totalPrice()
+        this.isImg = false
+        this.isBtn = true
         console.log(this.arr)
       }
     },
@@ -102,14 +111,29 @@ export default {
       this.allPrice = 0
       this.totalPrice()
     },
+    clearText(e) {
+      e.target.value.select()
+    },
     // 计算商品价格总和
     totalPrice() {
       this.goodsList.forEach(item => {
         this.allPrice += item.sell_price * item.cou
       })
     },
+    // 删除所有功能
     delList() {
       localStorage.clear()
+      location.reload()
+    },
+    // 删除单条功能
+    danDel(i) {
+      console.log(i)
+      let str = window.localStorage.getItem('arr')
+      console.log(JSON.parse(str))
+      let Arr = JSON.parse(str)
+      Arr.splice(i, 1)
+      console.log(Arr)
+      this.$store.commit('danDel', Arr)
       location.reload()
     }
   }
@@ -125,6 +149,31 @@ export default {
 .van-card {
   margin-bottom: 20px;
 }
+.van-card__price {
+  color: red;
+}
+#danBtn {
+  padding: 0;
+  width: 35px;
+  height: 32px;
+  vertical-align: middle;
+  line-height: 32px;
+}
+#showImg {
+  text-align: center;
+}
+.van-button--hairline.van-button--round::after,
+.van-button--round {
+  position: fixed;
+  right: 5px;
+  bottom: 5px;
+  width: 88px;
+  height: 44px;
+  border-radius: 0px;
+}
+.van-submit-bar__text {
+  padding-right: 40%;
+}
 #carBtn {
   margin-left: -8px;
 }
@@ -137,6 +186,7 @@ export default {
   top: -40px;
 }
 .van-button--mini {
+  vertical-align: middle;
   min-width: 32px;
   height: 32px;
   margin-top: -1px;
@@ -149,17 +199,17 @@ export default {
   margin-right: 5px;
 }
 #numInput {
-  width: 25px;
-  height: 28px;
-  padding-left: 15px;
+  width: 14px;
+  height: 23px;
+  padding-left: 10px;
 }
 .van-card__price-integer {
   color: red;
 }
 #delBtn {
   position: fixed;
-  left: 0;
-  bottom: 50px;
+  left: 5px;
+  bottom: 5px;
 }
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {

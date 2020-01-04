@@ -20,8 +20,6 @@ export default {
     }
   },
   updated() {
-    console.log(typeof this.$refs.artRef)
-    console.dir(this.$refs.artRef)
     this.$refs.artRef.style.color = '#030737'
   },
   created() {
@@ -40,7 +38,12 @@ export default {
       if (res.status !== 0) return this.$toast.fail('获取数据失败')
       // 将获取到的数据保存
       this.msg = res.message[0]
-      this.article = res.message[0].content
+      // 替换富文本标签里面的img
+      let newData = res.message[0].content.replace(/<img/gi, '<img style="width:100%"')
+      let data = newData.replace(/<table width=/gi, '<table width="100%">')
+      // console.log(newData)
+      // console.log(data)
+      this.article = data
     }
   }
 }
@@ -65,12 +68,6 @@ body {
     text-align: center;
     // text-indent: 2em;
     line-height: 40px;
-    span {
-      width: 100% !important;
-      img {
-        width: 100% !important;
-      }
-    }
   }
 }
 .foot {
