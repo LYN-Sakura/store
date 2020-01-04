@@ -146,6 +146,7 @@ export default {
     color: white;
   }
 }
-#searchListValue div {
+.van-cell__value--alone {
+  text-align:left !important;
 }
 </style>
