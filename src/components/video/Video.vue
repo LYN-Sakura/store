@@ -8,29 +8,33 @@
             <van-swipe-item
               ><div class="img_box">
                 <img src="../../assets/image/615a4094d143ad4bbf6142168c025aafa50f0607.jpg" alt="" />
-                <div class="img_di">陈情令</div>
-                <span>肖战和王一博的爱恨情仇 等你来看!</span>
+                <div class="title">
+                  <div class="img_di">陈情令:肖战和王一博的爱恨情仇 等你来看!</div>
+                </div>
               </div></van-swipe-item
             >
             <van-swipe-item
               ><div class="img_box">
                 <img src="../../assets/image/5c401c07a4899.jpg" alt="" />
-                <div class="img_di">白蛇~缘起</div>
-                <span>绝美国漫!</span>
+                <div class="title">
+                  <div class="img_di">白蛇~缘起:绝美国漫!</div>
+                </div>
               </div></van-swipe-item
             >
             <van-swipe-item
               ><div class="img_box">
                 <img src="../../assets/image/timg (1).jpg" alt="" />
-                <div class="img_di">超人之钢铁之躯</div>
-                <span>超人再战江湖!</span>
+                <div class="title">
+                  <div class="img_di">超人之钢铁之躯:超人再战江湖!</div>
+                </div>
               </div></van-swipe-item
             >
             <van-swipe-item
               ><div class="img_box">
                 <img src="../../assets/image/timg.jpg" alt="" />
-                <div class="img_di">蜘蛛侠之英雄归来</div>
-                <span>蜘蛛侠屌丝崛起!</span>
+                <div class="title">
+                  <div class="img_di">蜘蛛侠之英雄归来:蜘蛛侠屌丝崛起!</div>
+                </div>
               </div></van-swipe-item
             >
           </van-swipe>
@@ -82,6 +86,9 @@ export default {
 </script>
 
 <style lang="less" scoped>
+.van-swipe {
+  height: 220px !important;
+}
 .van-tabs {
   background-color: #f7f7f7;
 }
@@ -92,5 +99,22 @@ export default {
 .img_di {
   font-size: 20px;
   margin-bottom: 10px;
+}
+[data-v-bed27f32] {
+  width: 100%;
+}
+.van-swipe-item {
+  position: relative;
+  div {
+    text-align: left;
+    margin: 0;
+    font-size: 16px;
+    color: white;
+  }
+  .title {
+    position: absolute;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+  }
 }
 </style>
