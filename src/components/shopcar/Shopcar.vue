@@ -65,7 +65,7 @@ export default {
         this.totalPrice()
         this.isImg = false
         this.isBtn = true
-        console.log(this.arr)
+        // console.log(this.arr)
       }
     },
     // 添加商品数量
@@ -127,12 +127,12 @@ export default {
     },
     // 删除单条功能
     danDel(i) {
-      console.log(i)
+      // console.log(i)
       let str = window.localStorage.getItem('arr')
-      console.log(JSON.parse(str))
+      // console.log(JSON.parse(str))
       let Arr = JSON.parse(str)
       Arr.splice(i, 1)
-      console.log(Arr)
+      // console.log(Arr)
       this.$store.commit('danDel', Arr)
       location.reload()
     },
@@ -220,5 +220,10 @@ input::-webkit-inner-spin-button {
 }
 input[type='number'] {
   -moz-appearance: textfield;
+}
+#numInput[data-v-2b5f06a6]{
+  text-align: center;
+  min-width: 30px;
+  padding: 0;
 }
 </style>

@@ -39,7 +39,7 @@ export default {
     //   获取id所有对应图片
     getimglist() {
       this.$http.get('/api/getthumimages/' + this.id).then(res => {
-        console.log(res.data)
+        // console.log(res.data)
         this.imglist = res.data.message
       })
     },

@@ -34,7 +34,7 @@ export default {
     },
     async getPicText() {
       const { data: res } = await this.$http.get(`/api/goods/getdesc/${this.$route.params.id}`)
-      console.log(res)
+      // console.log(res)
       if (res.status !== 0) return this.$toast.fail('获取数据失败')
       // 将获取到的数据保存
       this.msg = res.message[0]

@@ -82,7 +82,7 @@ export default {
       var params = new URLSearchParams()
       params.append('content', this.$refs.comform.value)
       this.$http.post('/api/postcomment/' + this.id, params).then(res => {
-        console.log(res.data)
+        // console.log(res.data)
         if (res.data.status !== 0) {
           return Toast.fail('请求服务器失败')
         }
