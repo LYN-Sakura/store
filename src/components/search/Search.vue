@@ -44,9 +44,11 @@ export default {
     initdata() {
       var par1 = window.localStorage.getItem('hisData')
       if (par1) {
-        this.searchHistory = par1.split(',')
+        // 将本地历史记录划分为数组
+        this.searchHistory = Array.from(new Set(par1.split(',')))
       }
     },
+    // 储存搜索数据
     getdata(a) {
       var par = window.localStorage.getItem('hisData')
       if (!par) {
@@ -55,20 +57,19 @@ export default {
         var b = `${par},${a}`
         window.localStorage.setItem('hisData', b)
       }
-      var arr = window.localStorage.getItem('hisData').split(',')
-      return Array.from(new Set(arr))
+      this.initdata()
     },
+    // 搜索
     async onSearch(a) {
       if (a.trim().length === 0) {
-        this.$alert({
+        return this.$alert({
           message: '请输入搜索内容'
         })
-        return
       }
       let { data } = await this.$http.get('api/getprodlist')
       this.searchList = data.message
       // this.cellFlag = true
-      this.searchHistory = this.getdata(a)
+      this.getdata(a)
       this.rowFlag = false
     },
     onCancel() {
@@ -76,7 +77,7 @@ export default {
       this.rowFlag = true
     },
     del() {
-      window.localStorage.clear()
+      window.localStorage.removeItem('hisData')
       this.searchHistory = ''
     },
     async delData(a) {
@@ -86,6 +87,7 @@ export default {
     },
     historyToSearch(i) {
       this.value = i
+      this.onSearch(this.value)
     }
   },
   watch: {
@@ -144,7 +146,6 @@ export default {
     color: white;
   }
 }
-#searchListValue div{
-
+#searchListValue div {
 }
 </style>
