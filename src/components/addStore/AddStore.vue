@@ -3,7 +3,7 @@
     <HeaderFrame :backIsDisplay="true"></HeaderFrame>
     <div class="main">
       <div class="content">
-        <van-field v-model="storeName" placeholder="请输入商品名称" />
+        <van-field v-model="storeName" @keyup.enter="addStore" placeholder="请输入商品名称" />
         <van-button type="info" @click="addStore" class="infoBtn">添加商品</van-button>
       </div>
     </div>
