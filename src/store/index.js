@@ -10,6 +10,7 @@ export default new Vuex.Store({
   },
   mutations: {
     add(state, obj) {
+      console.log(state.arr)
       const index = state.arr.findIndex(item => item.id === obj.id)
       if (index !== -1) {
         state.arr[index].num += obj.num
@@ -25,6 +26,26 @@ export default new Vuex.Store({
         })
         state.count = num
       }
+      console.log(state.count)
+    },
+    editAdd(state, obj) {
+      window.localStorage.clear()
+      console.log(state.arr)
+      console.log(obj)
+      const index = state.arr.findIndex(item => item.id === obj.id)
+      if (index !== -1) {
+        console.log(0)
+        state.arr[index].num = obj.num
+      }
+      window.localStorage.setItem('arr', JSON.stringify(state.arr))
+      // // 次数
+      // if (state.arr.length) {
+      //   let num = 0
+      //   state.arr.forEach(item => {
+      //     num += item.num
+      //   })
+      //   state.count = num
+      // }
     },
     get(state) {
       const arr = window.localStorage.getItem('arr')

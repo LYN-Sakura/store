@@ -19,7 +19,7 @@
       </div>
 
       <van-row class="historyData" type="flex" v-show="rowFlag">
-        <span class="colData" v-for="(i, index) in searchHistory" :key="index">{{ i }}</span>
+        <span @click="historyToSearch(i)" class="colData" v-for="(i, index) in searchHistory" :key="index">{{ i }}</span>
       </van-row>
     </div>
     <FooterFrame searchLight="#1989fa"></FooterFrame>
@@ -83,6 +83,10 @@ export default {
       this.$http.get(`api/delproduct/${a}`)
       let { data } = await this.$http.get('api/getprodlist')
       this.searchList = data.message
+    },
+    historyToSearch(i) {
+      this.value = i
+      this.onSearch(this.value)
     }
   },
   watch: {
@@ -128,14 +132,14 @@ export default {
     margin-right: 12px;
   }
 }
-.historyData{
+.historyData {
   margin-left: 12px;
   margin-top: 15px;
   font-size: 12px;
-  .colData{
+  .colData {
     border: none;
     margin: 3px;
-    padding:3px 6px;
+    padding: 3px 6px;
     border-radius: 3px;
     background-color: #969799;
     color: white;

@@ -1,32 +1,29 @@
 <template>
   <div>
     <HeaderFrame :backIsDisplay="true"></HeaderFrame>
-    <div class="goods_list">
-      <van-pull-refresh v-model="isLoading" @refresh="onRefresh">
-        <van-list v-model="loading" :finished="finished" finished-text="没有更多了" @load="onLoad">
-          <van-cell
-            v-for="item in goodsList"
-            :key="item.id"
-            @click="toDetails(item.id)"
-            v-lazy="item.img_url"
-          >
-            <van-image :src="item.img_url" lazy-load />
-            <p>{{item.title}}</p>
-            <div class="bottom_box">
-              <div>
-                <span>￥{{item.sell_price}}</span>
-                <s>￥{{item.market_price}}</s>
+    <div class="main">
+      <div class="goods_list">
+        <van-pull-refresh v-model="isLoading" @refresh="onRefresh">
+          <van-list v-model="loading" :finished="finished" finished-text="没有更多了" @load="onLoad">
+            <van-cell v-for="item in goodsList" :key="item.id" @click="toDetails(item.id)" v-lazy="item.img_url">
+              <van-image :src="item.img_url" lazy-load />
+              <p>{{ item.title }}</p>
+              <div class="bottom_box">
+                <div>
+                  <span>￥{{ item.sell_price }}</span>
+                  <s>￥{{ item.market_price }}</s>
+                </div>
+                <div>
+                  <span>热卖中</span>
+                  <span>剩余{{ item.stock_quantity }}件</span>
+                </div>
               </div>
-              <div>
-                <span>热卖中</span>
-                <span>剩余{{item.stock_quantity}}件</span>
-              </div>
-            </div>
-          </van-cell>
-        </van-list>
-      </van-pull-refresh>
+            </van-cell>
+          </van-list>
+        </van-pull-refresh>
+      </div>
     </div>
-    <FooterFrame homeLight="#1989fa"></FooterFrame>
+    <FooterFrame></FooterFrame>
   </div>
 </template>
 

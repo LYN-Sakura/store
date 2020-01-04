@@ -25,11 +25,13 @@ import {
   Stepper,
   Toast,
   Rate,
+  SubmitBar,
   Search,
   Card,
   Dialog,
   SwipeCell,
-  Divider
+  Divider,
+  Overlay
 } from 'vant'
 Vue.use(Row)
   .use(Col)
@@ -56,9 +58,12 @@ Vue.use(Row)
   .use(Stepper)
   .use(Toast)
   .use(Rate)
+  .use(Card)
+  .use(SubmitBar)
   .use(Search)
   .use(Card)
   .use(SwipeCell)
   .use(Divider)
+  .use(Overlay)
 Vue.prototype.$alert = Dialog.alert
 Vue.prototype.$confirm = Dialog.confirm

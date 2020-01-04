@@ -14,7 +14,7 @@
         </router-link>
       </van-col>
       <van-col span="6">
-        <router-link to="/">
+        <router-link to="/Shopcar">
           <van-icon name="cart-o" :info="this.$store.state.count" />
           <div>购物车</div>
         </router-link>
@@ -48,6 +48,7 @@ footer {
   text-align: center;
   bottom: 0;
   width: 100%;
+  min-width: 375px;
   height: 40px;
   padding-top: 10px;
   background-color: white;
