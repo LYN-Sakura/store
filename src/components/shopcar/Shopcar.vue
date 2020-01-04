@@ -4,27 +4,10 @@
     <div class="main">
       <!--goods list-->
       <van-row v-for="(item, index) in goodsList" :key="item.id">
-        <van-card
-          @click-thumb="toGoodsInfo(item.id)"
-          :num="item.cou"
-          :price="item.sell_price + '.00'"
-          :title="item.title"
-          :thumb="item.thumb_path"
-        >
+        <van-card @click-thumb="toGoodsInfo(item.id)" :num="item.cou" :price="item.sell_price + '.00'" :title="item.title" :thumb="item.thumb_path">
           <div slot="footer">
-            <van-button
-              size="mini"
-              id="numBtn"
-              @click="subGoods(item, index)"
-              :disabled="item.cou <= 1 ? true : false"
-            >-</van-button>
-            <input
-              type="number"
-              id="numInput"
-              v-model="item.cou"
-              @blur="inputText(item, index)"
-              @dblclick="clearText()"
-            />
+            <van-button size="mini" id="numBtn" @click="subGoods(item, index)" :disabled="item.cou <= 1 ? true : false">-</van-button>
+            <input type="number" id="numInput" v-model="item.cou" @blur="inputText(item, index)" @dblclick="clearText()" />
             <van-button size="mini" @click="addGoods(item, index)">+</van-button>
             <van-button id="danBtn" type="danger" @click="danDel(item.id)">删除</van-button>
           </div>
@@ -34,9 +17,7 @@
       <van-submit-bar :price="total * 100" button-text="提交订单" button-type="primary">
         <van-button v-show="isBtn" id="delBtn" type="danger" @click="delList">删除订单</van-button>
       </van-submit-bar>
-      <div v-show="isImg" @click="toGoodsList" id="showImg">
-        <img src="../../assets/images/space.jpg" alt />
-      </div>
+      <div v-show="isImg" @click="toGoodsList" id="showImg"><img src="../../assets/images/space.jpg" alt /></div>
     </div>
   </div>
 </template>
@@ -144,14 +125,17 @@ export default {
     },
     // 删除单条功能
     danDel(id) {
-      id = id + ''
+      const index = this.goodsList.findIndex(item => item.id === id)
       let str = window.localStorage.getItem('arr')
       let Arr = JSON.parse(str)
       // 获取本地储存的下标
-      const i = Arr.findIndex(item => item.id === id)
-      // 本地，数据一起删除
+      // console.log(Arr)
+      console.log(id)
+      const i = Arr.findIndex(item => item.id === id + '')
+      // console.log(i, index)
+      // 本地，数据一起删除,数据的下标不一样
       Arr.splice(i, 1)
-      this.goodsList.splice(i, 1)
+      this.goodsList.splice(index, 1)
       this.$store.commit('danDel', Arr)
       this.$store.commit('get')
       // window.location.reload()
