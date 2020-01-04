@@ -66,7 +66,7 @@
         <van-tab title="少儿">懒得写</van-tab>
         <van-tab title="纪录片">懒得写</van-tab>
       </van-tabs>
-      <FooterFrame homeLight="#1989fa"></FooterFrame>
+      <FooterFrame></FooterFrame>
     </div>
   </div>
 </template>

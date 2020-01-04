@@ -26,6 +26,7 @@ export default new Vuex.Store({
         })
         state.count = num
       }
+      console.log(state.count)
     },
     editAdd(state, obj) {
       window.localStorage.clear()

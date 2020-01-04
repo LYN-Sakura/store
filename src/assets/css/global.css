@@ -1,7 +1,8 @@
 html,
 body,
 #app {
-	min-width: 300px;
+	min-width: 375px;
+	margin: 0 auto;
 }
 
 .main {
@@ -10,6 +11,7 @@ body,
 	border-top: 1px solid #fff;
 	margin-top: 39px;
 	padding-bottom: 50px;
+	animation: zuohua 0.3s  1;
 }
 
 .showLoading {
@@ -29,4 +31,17 @@ body,
 .van-cell__value--alone {
 	color: #323233;
 	text-align: center;
+}
+
+/* 滑入动画 */
+@keyframes zuohua {
+	0% {
+		margin-left: 100%;
+	}
+	90%{
+		margin-left: -2%;
+	}
+	100% {
+		margin-left: 0%;
+	}
 }
