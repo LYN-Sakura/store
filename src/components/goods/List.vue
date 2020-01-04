@@ -118,6 +118,9 @@ export default {
   div {
     padding: 0 10px;
   }
+  div:first-child {
+    text-align: left;
+  }
   div:first-child span:first-child {
     font-size: 16px;
     color: red;

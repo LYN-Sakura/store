@@ -30,7 +30,7 @@ body,
 
 .van-cell__value--alone {
 	color: #323233;
-	text-align: center;
+	text-align: center !important;
 }
 
 /* 滑入动画 */
