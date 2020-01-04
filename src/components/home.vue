@@ -29,7 +29,7 @@
       </div>
       <div class="box">
         <div>
-          <router-link to="/">
+          <router-link to="/message">
             <img src="..\assets\images\jiu\menu4.png" alt="" />
             <span>留言反馈</span>
           </router-link>
@@ -41,7 +41,7 @@
           </router-link>
         </div>
         <div>
-          <router-link to="/">
+          <router-link to="/contact">
             <img src="..\assets\images\jiu\menu6.png" alt="" />
             <span>联系我们</span>
           </router-link>

@@ -28,6 +28,10 @@ import Search from '../components/search/Search.vue'
 import Video from '../components/video/Video.vue'
 // 引入商品讨论
 import GoodsSpeak from '../components/goodside/GoodsSpeak.vue'
+// 引入留言反馈
+import Message from '../components/message/Message.vue'
+// 引入联系我们
+import Contact from '../components/contact/Contact.vue'
 Vue.use(VueRouter)
 
 Vue.use(VueRouter)
@@ -90,6 +94,14 @@ const routes = [{
 {
   path: '/shopcar',
   component: Shopcar
+},
+{
+  path: '/message',
+  component: Message
+},
+{
+  path: '/contact',
+  component: Contact
 }
 ]
 

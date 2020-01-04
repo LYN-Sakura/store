@@ -3,13 +3,13 @@
     <HeaderFrame :backIsDisplay="true"></HeaderFrame>
     <div class="main">
       <!--goods list-->
-      <van-row v-for="(item, index) in goodsList" :key="index">
-        <van-card :num="item.cou" :price="item.sell_price + '.00'" :title="item.title" :thumb="item.thumb_path">
+      <van-row v-for="(item, index) in goodsList" :key="item.id">
+        <van-card @click-thumb="toGoodsInfo(item.id)" :num="item.cou" :price="item.sell_price + '.00'" :title="item.title" :thumb="item.thumb_path">
           <div slot="footer">
             <van-button size="mini" id="numBtn" @click="subGoods(item, index)" :disabled="item.cou <= 1 ? true : false">-</van-button>
             <input type="number" id="numInput" v-model="item.cou" @blur="inputText(item, index)" @dblclick="clearText()" />
             <van-button size="mini" @click="addGoods(item, index)">+</van-button>
-            <van-button id="danBtn" type="danger" @click="danDel(index)">删除</van-button>
+            <van-button id="danBtn" type="danger" @click="danDel(item.id)">删除</van-button>
           </div>
         </van-card>
       </van-row>
@@ -126,18 +126,30 @@ export default {
       location.reload()
     },
     // 删除单条功能
-    danDel(i) {
-      // console.log(i)
+    danDel(id) {
+      id = id + ''
       let str = window.localStorage.getItem('arr')
-      // console.log(JSON.parse(str))
       let Arr = JSON.parse(str)
+      // 获取本地储存的下标
+      const i = Arr.findIndex(item => item.id === id)
+      // 本地，数据一起删除
       Arr.splice(i, 1)
-      // console.log(Arr)
+      this.goodsList.splice(i, 1)
       this.$store.commit('danDel', Arr)
-      location.reload()
     },
     toGoodsList() {
       this.$router.push('/goods/list')
+    },
+    toGoodsInfo(id) {
+      this.$router.push('/goods/detail/' + id)
+    }
+  },
+  watch: {
+    goodsList() {
+      if (this.goodsList.length && this.goodsList.length !== 0) {
+        this.isImg = false
+        this.isBtn = true
+      }
     }
   }
 }
@@ -221,7 +233,7 @@ input::-webkit-inner-spin-button {
 input[type='number'] {
   -moz-appearance: textfield;
 }
-#numInput[data-v-2b5f06a6]{
+#numInput[data-v-2b5f06a6] {
   text-align: center;
   min-width: 30px;
   padding: 0;

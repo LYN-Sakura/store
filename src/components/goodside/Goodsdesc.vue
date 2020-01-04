@@ -39,10 +39,10 @@ export default {
       // 将获取到的数据保存
       this.msg = res.message[0]
       // 替换富文本标签里面的img
-      let newData = res.message[0].content.replace(/<img/gi, '<img style="width:100%"')
-      let data = newData.replace(/<table width=/gi, '<table width="100%">')
-      // console.log(newData)
-      // console.log(data)
+      let newData = res.message[0].content.replace(/<img/gi, '<img style="width:100%;min-width:200px;"')
+      let data = newData.replace(/<table width=/gi, '<table width="100%"')
+      console.log(newData)
+      console.log(data)
       this.article = data
     }
   }
@@ -65,7 +65,7 @@ body {
     width: 100%;
   }
   .art {
-    text-align: center;
+    text-align: left;
     // text-indent: 2em;
     line-height: 40px;
   }
