@@ -123,7 +123,7 @@ export default {
     // 删除所有功能
     delList() {
       window.localStorage.clear()
-      this.goodsList = []
+      window.location.reload()
     },
     // 删除单条功能
     danDel(id) {
@@ -136,6 +136,7 @@ export default {
       Arr.splice(i, 1)
       this.goodsList.splice(i, 1)
       this.$store.commit('danDel', Arr)
+      window.location.reload()
     },
     toGoodsList() {
       this.$router.push('/goods/list')
@@ -146,9 +147,13 @@ export default {
   },
   watch: {
     goodsList() {
+      console.log(this.goodsList.length)
       if (this.goodsList.length && this.goodsList.length !== 0) {
         this.isImg = false
         this.isBtn = true
+      } else {
+        this.isImg = true
+        this.isBtn = false
       }
     }
   }
