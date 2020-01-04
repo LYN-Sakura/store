@@ -7,7 +7,7 @@
           <van-swipe :autoplay="3000" indicator-color="white">
             <van-swipe-item
               ><div class="img_box">
-                <img src="../../assets/image/615a4094d143ad4bbf6142168c025aafa50f0607.jpg" alt="" />
+                <img src="../../assets/image/615a4094d143ad4bbf6142168c025aafa50f0607.jpg" />
                 <div class="title">
                   <div class="img_di">陈情令:肖战和王一博的爱恨情仇 等你来看!</div>
                 </div>
@@ -62,7 +62,31 @@
             </van-grid-item>
           </van-grid>
         </van-tab>
-        <van-tab title="电视剧">懒得写</van-tab>
+        <van-tab title="电视剧">
+          <h1> 电视剧推荐</h1>
+          <van-grid :border="false" :column-num="2">
+            <van-grid-item>
+              <img src="//i.gtimg.cn/qqlive/img/jpgcache/files/qqvideo/hori/m/mzc00200xsbcv8w_big.jpg" alt="" />
+              <div class="img_di">边境线之冷焰[会员]</div>
+              <span>边防警察异域追击暗战迭起 </span>
+            </van-grid-item>
+            <van-grid-item>
+              <img src="//i.gtimg.cn/qqlive/img/jpgcache/files/qqvideo/hori/r/rjae621myqca41h_big.jpg" alt="" />
+              <div class="img_di">庆余年[会员先看]</div>
+              <span>张若昀陈道明领衔群像传奇</span>
+            </van-grid-item>
+            <van-grid-item>
+              <img src="//i.gtimg.cn/qqlive/img/jpgcache/files/qqvideo/hori/m/mzc00200bqxuhqe_big.jpg" alt="" />
+              <div class="img_di">精英律师</div>
+              <span>靳东蓝盈莹领衔律政戏骨团 </span>
+            </van-grid-item>
+            <van-grid-item>
+              <img src="//i.gtimg.cn/qqlive/img/jpgcache/files/qqvideo/hori/m/mzc002005v1t7fz_big.jpg" alt="" />
+              <div class="img_di">鳄鱼与牙签鸟</div>
+              <span>张天爱陈柏霖异国追爱寻梦 </span>
+            </van-grid-item>
+          </van-grid></van-tab
+        >
         <van-tab title="电影">懒得写</van-tab>
         <van-tab title="综艺">懒得写</van-tab>
         <van-tab title="NBA">懒得写</van-tab>
@@ -95,6 +119,7 @@ export default {
 .img_box {
   text-align: center;
   border-bottom: 1px solid #ccc;
+  img{height: 220px}
 }
 .img_di {
   font-size: 20px;
