@@ -122,8 +122,8 @@ export default {
     },
     // 删除所有功能
     delList() {
-      localStorage.clear()
-      location.reload()
+      window.localStorage.clear()
+      this.goodsList = []
     },
     // 删除单条功能
     danDel(id) {
