@@ -36,6 +36,7 @@ header {
   top: 0;
   z-index: 999;
   width: 100%;
+  min-width: 375px;
   height: 40px;
   background-color: #1989fa;
   line-height: 40px;

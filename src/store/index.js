@@ -26,6 +26,7 @@ export default new Vuex.Store({
         })
         state.count = num
       }
+      console.log(state.count)
     },
     editAdd(state, obj) {
       window.localStorage.clear()
@@ -45,6 +46,12 @@ export default new Vuex.Store({
       //   })
       //   state.count = num
       // }
+    },
+    danDel(state, obj) {
+      window.localStorage.clear()
+      state.arr = []
+      state.arr = obj
+      window.localStorage.setItem('arr', JSON.stringify(state.arr))
     },
     get(state) {
       const arr = window.localStorage.getItem('arr')

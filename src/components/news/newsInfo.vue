@@ -16,7 +16,7 @@
         </div>
         <comments></comments>
       </div>
-      <FooterFrame homeLight="#1989fa"></FooterFrame>
+      <FooterFrame></FooterFrame>
     </div>
   </div>
 </template>
