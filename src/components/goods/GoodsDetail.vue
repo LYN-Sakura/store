@@ -23,7 +23,7 @@
             <van-stepper v-model="value" />
           </div>
           <div class="btns">
-            <van-button type="info">立即购买</van-button>
+            <van-button type="info" @click="toShopCar">立即购买</van-button>
             <van-button type="danger" @click="addCat">加入购物车</van-button>
           </div>
         </div>
@@ -88,6 +88,10 @@ export default {
         status: true
       }
       this.$store.commit('add', add)
+    },
+    // 去购物车
+    toShopCar() {
+      this.$router.push('/Shopcar')
     }
   }
 }

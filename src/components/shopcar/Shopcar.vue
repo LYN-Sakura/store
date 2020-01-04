@@ -17,7 +17,7 @@
       <van-submit-bar :price="allPrice * 100" button-text="提交订单" button-type="primary">
         <van-button v-show="isBtn" id="delBtn" type="danger" @click="delList">删除订单</van-button>
       </van-submit-bar>
-      <div v-show="isImg" id="showImg"><img src="../../assets/images/space.jpg" alt="" /></div>
+      <div v-show="isImg" @click="toGoodsList" id="showImg"><img src="../../assets/images/space.jpg" alt="" /></div>
     </div>
   </div>
 </template>
@@ -135,6 +135,9 @@ export default {
       console.log(Arr)
       this.$store.commit('danDel', Arr)
       location.reload()
+    },
+    toGoodsList() {
+      this.$router.push('/goods/list')
     }
   }
 }
