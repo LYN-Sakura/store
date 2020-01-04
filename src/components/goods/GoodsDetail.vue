@@ -1,41 +1,43 @@
 <template>
   <div>
     <HeaderFrame :backIsDisplay="true"></HeaderFrame>
-    <div style="padding:10px ; margin:40px 0 ; text-align:left ">
-      <div class="swipe">
-        <van-swipe :autoplay="3000">
-          <van-swipe-item v-for="(image, index) in swipeImages" :key="index">
-            <img v-lazy="image" style="width: 200px; height: 200px; display: block; margin: auto;" />
-          </van-swipe-item>
-        </van-swipe>
-      </div>
-      <div class="goodsInfo">
-        <div class="goodsInfoTitle">{{ this.goodsInfo.title }}</div>
-        <p>
-          市场价：
-          <s>￥{{ this.goodsInfo.market_price }}</s>
-          销售价
-          <em>￥{{ this.goodsInfo.sell_price }}</em>
-        </p>
-        <div class="count">
-          <span>购买数量</span>
-          <van-stepper v-model="value" />
+    <div class="main">
+      <div style="padding:10px ; margin:40px 0 ; text-align:left ">
+        <div class="swipe">
+          <van-swipe :autoplay="3000">
+            <van-swipe-item v-for="(image, index) in swipeImages" :key="index">
+              <img v-lazy="image" style="width: 200px; height: 200px; display: block; margin: auto;" />
+            </van-swipe-item>
+          </van-swipe>
         </div>
-        <div class="btns">
-          <van-button type="info">立即购买</van-button>
-          <van-button type="danger" @click="addCat">加入购物车</van-button>
+        <div class="goodsInfo">
+          <div class="goodsInfoTitle">{{ this.goodsInfo.title }}</div>
+          <p>
+            市场价：
+            <s>￥{{ this.goodsInfo.market_price }}</s>
+            销售价
+            <em>￥{{ this.goodsInfo.sell_price }}</em>
+          </p>
+          <div class="count">
+            <span>购买数量</span>
+            <van-stepper v-model="value" />
+          </div>
+          <div class="btns">
+            <van-button type="info">立即购买</van-button>
+            <van-button type="danger" @click="addCat">加入购物车</van-button>
+          </div>
         </div>
-      </div>
-      <div class="goodsParams">
-        <div class="goodsParamsTitle">商品参数</div>
-        <div class="body">
-          <p>商品货号：{{ this.goodsInfo.goods_no }}</p>
-          <p>库存情况：{{ this.goodsInfo.stock_quantity }}</p>
-          <p>上架时间：{{ this.goodsInfo.add_time }}</p>
-        </div>
-        <div class="btns">
-          <van-button plain type="info" block @click="toGoodsDesc(urlId)">图文介绍</van-button>
-          <van-button plain type="danger" block @click="toGoodsComments(urlId)">商品评论</van-button>
+        <div class="goodsParams">
+          <div class="goodsParamsTitle">商品参数</div>
+          <div class="body">
+            <p>商品货号：{{ this.goodsInfo.goods_no }}</p>
+            <p>库存情况：{{ this.goodsInfo.stock_quantity }}</p>
+            <p>上架时间：{{ this.goodsInfo.add_time | dateYMD }}</p>
+          </div>
+          <div class="btns">
+            <van-button plain type="info" block @click="toGoodsDesc(urlId)">图文介绍</van-button>
+            <van-button plain type="danger" block @click="toGoodsComments(urlId)">商品评论</van-button>
+          </div>
         </div>
       </div>
     </div>

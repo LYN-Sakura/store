@@ -1,7 +1,7 @@
 <template>
   <div>
     <HeaderFrame :backIsDisplay="true"></HeaderFrame>
-    <comments></comments>
+    <div class="main"><comments></comments></div>
     <FooterFrame></FooterFrame>
   </div>
 </template>
