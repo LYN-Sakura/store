@@ -16,8 +16,8 @@
             <li>{{ item.content }}</li>
           </div>
         </ul>
+        <van-button class="footbtn" @click="addsub">加载更多</van-button>
       </div>
-      <van-button class="footbtn" @click="addsub">加载更多</van-button>
     </div>
     <!-- 彩蛋区 -->
     <van-overlay :show="show" @click="show = false">
@@ -145,7 +145,8 @@ h4 {
 }
 .footbtn {
   border: 1px solid red;
-  color: red;
+  color: red !important;
+  background-color: white !important;
 }
 .wrapper {
   display: flex;
