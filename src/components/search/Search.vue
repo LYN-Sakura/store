@@ -147,6 +147,6 @@ export default {
   }
 }
 .van-cell__value--alone {
-  text-align:left !important;
+  text-align: left !important;
 }
 </style>
