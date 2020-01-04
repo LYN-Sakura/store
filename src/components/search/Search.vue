@@ -5,7 +5,7 @@
       <van-search v-model="value" placeholder="请输入搜索关键词" show-action @search="onSearch(value)" @cancel="onCancel" clear />
       <!-- 搜索结果 -->
       <van-swipe-cell v-for="i in searchList" :key="i.id">
-        <van-cell>{{ i.name }}</van-cell>
+        <van-cell id="searchListValue">{{ i.name }}</van-cell>
         <template slot="right">
           <van-button square type="danger" text="删除" @click="delData(i.id)" />
         </template>
@@ -86,7 +86,6 @@ export default {
     },
     historyToSearch(i) {
       this.value = i
-      this.onSearch(this.value)
     }
   },
   watch: {
@@ -144,5 +143,8 @@ export default {
     background-color: #969799;
     color: white;
   }
+}
+#searchListValue div{
+
 }
 </style>

@@ -31,7 +31,9 @@ import {
   Dialog,
   SwipeCell,
   Divider,
-  Overlay
+  Overlay,
+  Collapse,
+  CollapseItem
 } from 'vant'
 Vue.use(Row)
   .use(Col)
@@ -65,5 +67,7 @@ Vue.use(Row)
   .use(SwipeCell)
   .use(Divider)
   .use(Overlay)
+  .use(Collapse)
+  .use(CollapseItem)
 Vue.prototype.$alert = Dialog.alert
 Vue.prototype.$confirm = Dialog.confirm
