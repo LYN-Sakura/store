@@ -77,9 +77,6 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.goods_list {
-  margin: 40px 0;
-}
 .van-list {
   display: flex;
   flex-wrap: wrap;

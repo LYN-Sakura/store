@@ -2,7 +2,7 @@
   <div>
     <HeaderFrame :backIsDisplay="true"></HeaderFrame>
     <div class="main">
-      <div style="padding:10px ; margin:40px 0 ; text-align:left ">
+      <div style="padding:10px ; text-align:left ">
         <div class="swipe">
           <van-swipe :autoplay="3000">
             <van-swipe-item v-for="(image, index) in swipeImages" :key="index">

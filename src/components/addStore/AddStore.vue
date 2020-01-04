@@ -20,6 +20,14 @@ export default {
   },
   methods: {
     async addStore() {
+      if (!this.storeName.trim()) {
+        return this.$notify({
+          color: '#fff',
+          background: 'orange',
+          message: '请输入内容',
+          duration: 500
+        })
+      }
       let { data: res } = await this.$http.post('/api/addproduct', 'name=' + this.storeName)
       if (res.status !== 0) {
         return this.$notify({
