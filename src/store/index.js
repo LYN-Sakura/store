@@ -47,12 +47,15 @@ export default new Vuex.Store({
       //   state.count = num
       // }
     },
+    // 单独删除
     danDel(state, obj) {
       window.localStorage.clear()
       state.arr = []
       state.arr = obj
       window.localStorage.setItem('arr', JSON.stringify(state.arr))
     },
+    // 全部删除
+    // 获取
     get(state) {
       const arr = window.localStorage.getItem('arr')
       state.arr = JSON.parse(arr) || []
@@ -65,6 +68,7 @@ export default new Vuex.Store({
         })
         state.count = num
       }
+      // console.log(state.count + 'assassda')
     }
   },
   actions: {},

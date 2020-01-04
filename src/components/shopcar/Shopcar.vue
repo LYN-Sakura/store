@@ -4,20 +4,39 @@
     <div class="main">
       <!--goods list-->
       <van-row v-for="(item, index) in goodsList" :key="item.id">
-        <van-card @click-thumb="toGoodsInfo(item.id)" :num="item.cou" :price="item.sell_price + '.00'" :title="item.title" :thumb="item.thumb_path">
+        <van-card
+          @click-thumb="toGoodsInfo(item.id)"
+          :num="item.cou"
+          :price="item.sell_price + '.00'"
+          :title="item.title"
+          :thumb="item.thumb_path"
+        >
           <div slot="footer">
-            <van-button size="mini" id="numBtn" @click="subGoods(item, index)" :disabled="item.cou <= 1 ? true : false">-</van-button>
-            <input type="number" id="numInput" v-model="item.cou" @blur="inputText(item, index)" @dblclick="clearText()" />
+            <van-button
+              size="mini"
+              id="numBtn"
+              @click="subGoods(item, index)"
+              :disabled="item.cou <= 1 ? true : false"
+            >-</van-button>
+            <input
+              type="number"
+              id="numInput"
+              v-model="item.cou"
+              @blur="inputText(item, index)"
+              @dblclick="clearText()"
+            />
             <van-button size="mini" @click="addGoods(item, index)">+</van-button>
             <van-button id="danBtn" type="danger" @click="danDel(item.id)">删除</van-button>
           </div>
         </van-card>
       </van-row>
       <!--submit order-->
-      <van-submit-bar :price="allPrice * 100" button-text="提交订单" button-type="primary">
+      <van-submit-bar :price="total * 100" button-text="提交订单" button-type="primary">
         <van-button v-show="isBtn" id="delBtn" type="danger" @click="delList">删除订单</van-button>
       </van-submit-bar>
-      <div v-show="isImg" @click="toGoodsList" id="showImg"><img src="../../assets/images/space.jpg" alt="" /></div>
+      <div v-show="isImg" @click="toGoodsList" id="showImg">
+        <img src="../../assets/images/space.jpg" alt />
+      </div>
     </div>
   </div>
 </template>
@@ -39,7 +58,15 @@ export default {
   },
   components: {},
   computed: {
-    ...mapState(['arr'])
+    ...mapState(['arr']),
+    // 计算商品价格总和
+    total() {
+      let all = 0
+      this.goodsList.forEach(item => {
+        all += item.sell_price * item.cou
+      })
+      return all
+    }
   },
   created() {
     this.$store.commit('get')
@@ -62,7 +89,6 @@ export default {
         this.arr.forEach((item, index) => {
           this.goodsList[index].cou = item.num
         })
-        this.totalPrice()
         this.isImg = false
         this.isBtn = true
         // console.log(this.arr)
@@ -76,8 +102,6 @@ export default {
         num: n.cou
       }
       this.$store.commit('editAdd', add)
-      this.allPrice = 0
-      this.totalPrice()
     },
     // 减少商品数量
     subGoods(n, i) {
@@ -87,8 +111,6 @@ export default {
         num: n.cou
       }
       this.$store.commit('editAdd', add)
-      this.allPrice = 0
-      this.totalPrice()
     },
     // 输入商品数量
     inputText(n, i) {
@@ -109,21 +131,16 @@ export default {
       }
       this.$store.commit('editAdd', add)
       this.allPrice = 0
-      this.totalPrice()
     },
     clearText(e) {
       e.target.value.select()
     },
-    // 计算商品价格总和
-    totalPrice() {
-      this.goodsList.forEach(item => {
-        this.allPrice += item.sell_price * item.cou
-      })
-    },
     // 删除所有功能
     delList() {
       window.localStorage.clear()
-      window.location.reload()
+      // window.location.reload()
+      this.goodsList = []
+      this.$store.commit('get')
     },
     // 删除单条功能
     danDel(id) {
@@ -136,7 +153,8 @@ export default {
       Arr.splice(i, 1)
       this.goodsList.splice(i, 1)
       this.$store.commit('danDel', Arr)
-      window.location.reload()
+      this.$store.commit('get')
+      // window.location.reload()
     },
     toGoodsList() {
       this.$router.push('/goods/list')
@@ -147,13 +165,14 @@ export default {
   },
   watch: {
     goodsList() {
-      console.log(this.goodsList.length)
+      // console.log(this.goodsList.length)
       if (this.goodsList.length && this.goodsList.length !== 0) {
         this.isImg = false
         this.isBtn = true
       } else {
         this.isImg = true
         this.isBtn = false
+        this.$store.state.count = 0
       }
     }
   }
